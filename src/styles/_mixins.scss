@@ -1,0 +1,29 @@
+@import 'themes';
+
+@mixin theme() {
+  @each $theme, $map in $themes {
+    $theme-map: $map !global;
+    .theme--#{$theme} & {
+      @content;
+    }
+  }
+  $theme-map: null !global;
+}
+
+@mixin sm() {
+  @media screen and (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @media screen and (max-width: 892px) {
+    @content;
+  }
+}
