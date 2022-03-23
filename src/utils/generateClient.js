@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const generateApiClient = (baseURL = '') => {
-  console.log({ baseURL });
   const config = axios.create({
     baseURL,
     headers: {
