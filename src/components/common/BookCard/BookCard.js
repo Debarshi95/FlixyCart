@@ -10,7 +10,7 @@ const BookCard = ({ children, book }) => {
   return (
     <Link to={`/book/${book._id}`}>
       <div className="BookCard__root">
-        <CardImage url={`http://localhost:3002${book.image}`} width="100%" height="70%" />
+        <CardImage url={book.image} width="100%" height="70%" />
         <div className="BookCard__content">
           {children || (
             <>
