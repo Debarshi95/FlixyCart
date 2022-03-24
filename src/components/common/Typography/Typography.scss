@@ -12,3 +12,30 @@
     font-size: 1.25rem;
   }
 }
+
+.Typography {
+  &--200 {
+    font-weight: 200;
+  }
+  &--300 {
+    font-weight: 300;
+  }
+  &--300 {
+    font-weight: 300;
+  }
+  &--400 {
+    font-weight: 400;
+  }
+  &--500 {
+    font-weight: 500;
+  }
+  &--600 {
+    font-weight: 600;
+  }
+  &--700 {
+    font-weight: 700;
+  }
+  &--bold {
+    font-weight: bold;
+  }
+}
