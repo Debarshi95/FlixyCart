@@ -21,7 +21,7 @@
   @include theme() {
     background-color: theme-get('card-bg');
   }
-  height: 28rem;
+  height: 26rem;
   @include md() {
     height: 26rem;
   }
@@ -45,5 +45,6 @@
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
     cursor: pointer;
+    margin-top: 6px;
   }
 }

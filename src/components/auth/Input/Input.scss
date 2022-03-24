@@ -22,5 +22,8 @@
     @include theme() {
       color: theme-get('text-color');
     }
+    @include sm() {
+      font-size: 0.95rem;
+    }
   }
 }
