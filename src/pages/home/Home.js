@@ -7,23 +7,27 @@ import { loadProductActions } from '../../constants/actions';
 import './Home.scss';
 
 const Home = () => {
-  const [productState, dispatch] = useReducer(productReducer, { loading: true, product: [] });
+  const [productState, dispatch] = useReducer(productReducer, {
+    loading: true,
+    product: [],
+  });
 
   useEffect(() => {
     document.title = 'Flixycart | Your store for latest books';
+    const { REQUEST_GET_PRODUCTS, REQUEST_GET_PRODUCTS_FAILURE, REQUEST_GET_PRODUCTS_SUCCESS } =
+      loadProductActions;
 
-    dispatch({ type: loadProductActions.REQUEST_GET_PRODUCTS });
-
+    dispatch({ type: REQUEST_GET_PRODUCTS });
     getProducts()
       .then((res) => {
         dispatch({
-          type: loadProductActions.REQUEST_GET_PRODUCTS_SUCCESS,
+          type: REQUEST_GET_PRODUCTS_SUCCESS,
           payload: res.data.result,
         });
       })
       .catch((err) =>
         dispatch({
-          type: loadProductActions.REQUEST_GET_PRODUCTS_SUCCESS,
+          type: REQUEST_GET_PRODUCTS_FAILURE,
           payload: err.message,
         })
       );
