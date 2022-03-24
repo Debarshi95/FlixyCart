@@ -1,12 +1,22 @@
 import React from 'react';
+import { useField } from 'formik';
 import './Input.scss';
 
-const Input = ({ type, hasLabel, className, label, htmlFor, ...props }) => {
-  const InputComp = <input type={type} className={`Input__root ${className}`} {...props} />;
+const Input = ({ hasLabel, className, label, ...props }) => {
+  const [field, meta] = useField(props);
+
+  const InputComp = (
+    <>
+      <input className={`Input__root ${className}`} {...field} {...props} />
+      {meta.touched && meta.error ? <div className="Input__error">{meta.error}</div> : null}
+    </>
+  );
 
   return hasLabel ? (
     <>
-      <label htmlFor={htmlFor}>{label}</label>
+      <label htmlFor={props.id || props.name} className="Input__label">
+        {label}
+      </label>
       {InputComp}
     </>
   ) : (
