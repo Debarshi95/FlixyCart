@@ -1,0 +1,26 @@
+@import '../../../styles/functions';
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.Navbar__root {
+  padding: 1.25rem 0;
+  @include theme() {
+    background-color: theme-get('navbar-bg');
+  }
+  & a {
+    color: $color-primary;
+  }
+  font-weight: bold;
+}
+
+.Navbar {
+  &__IconButton {
+    @include theme() {
+      color: $color-primary-200;
+      font-size: 1.25rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+  }
+}

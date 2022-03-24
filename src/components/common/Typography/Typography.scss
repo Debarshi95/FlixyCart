@@ -1,0 +1,14 @@
+@import '../../../styles/functions';
+@import '../../../styles/mixins';
+
+.Typography__root {
+  @include theme() {
+    color: theme-get('text-color');
+  }
+  @include sm() {
+    font-size: 0.8rem;
+  }
+  @include md() {
+    font-size: 1.25rem;
+  }
+}

@@ -1,0 +1,16 @@
+@use 'variables';
+
+$themes: (
+  dark: (
+    background-color: variables.$color-dark-bg-default,
+    text-color: variables.$color-white-smoky,
+    navbar-bg: variables.$color-black-smoky,
+    card-bg: variables.$color-black-smoky,
+  ),
+  light: (
+    background-color: variables.$color-light-bg-default,
+    text-color: variables.$color-black-smoky,
+    navbar-bg: variables.$color-white-smoky,
+    card-bg: variables.$color-white-smoky,
+  ),
+);
