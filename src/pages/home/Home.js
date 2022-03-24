@@ -39,18 +39,14 @@ const Home = () => {
       <section className="Home__section">
         <RowSection
           title="Trending"
-          titleAlign="center"
+          align="center"
           books={productState.product?.slice(0, 4)}
           id="trending"
         />
-        <RowSection
-          title="Top Sellers"
-          titleAlign="center"
-          books={productState.product?.slice(4, 8)}
-        />
+        <RowSection title="Top Sellers" align="center" books={productState.product?.slice(4, 8)} />
         <RowSection
           title="Books on Sale"
-          titleAlign="left"
+          align="center"
           books={productState.product?.slice(6, 10).reverse()}
         />
       </section>
