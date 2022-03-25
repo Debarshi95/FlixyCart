@@ -15,10 +15,10 @@ const Banner = () => {
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
           </Typography>
           <div className="Banner__buttonsContainer d-flex">
-            <Button variant="contained" link to="/#trending" className="py-1 width-10">
+            <Button variant="contained" component="link" to="#trending" className="Banner__button">
               Buy Now
             </Button>
-            <Button variant="outlined" link to="/books">
+            <Button variant="outlined" component="link" to="/books" className="Banner__button">
               Get Started
             </Button>
           </div>

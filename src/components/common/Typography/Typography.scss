@@ -1,5 +1,6 @@
 @import '../../../styles/functions';
 @import '../../../styles/mixins';
+@import '../../../styles/variables';
 
 .Typography__root {
   @include theme() {
@@ -37,5 +38,22 @@
   }
   &--bold {
     font-weight: bold;
+  }
+
+  &--error {
+    color: $color-red !important;
+  }
+  &--xs {
+    font-size: 0.9rem;
+  }
+  &--sm {
+    font-size: 1.1rem;
+  }
+  &--ssm {
+    font-size: 1.25rem;
+  }
+
+  &--md {
+    font-size: 1.5rem;
   }
 }
