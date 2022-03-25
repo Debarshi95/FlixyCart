@@ -11,12 +11,12 @@
   justify-content: center;
   border-radius: 4px;
   cursor: pointer;
-  width: 10rem;
+  min-width: 10rem;
   @include md() {
-    width: 10rem;
+    min-width: 10rem;
   }
   @include sm() {
-    width: 8rem;
+    min-width: 6rem;
   }
 }
 
@@ -37,5 +37,9 @@
 
   &__text--capitalize {
     text-transform: uppercase;
+  }
+  &--disabled {
+    background-color: $color-primary-disabled;
+    cursor: initial;
   }
 }

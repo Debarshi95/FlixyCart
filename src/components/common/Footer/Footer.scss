@@ -1,16 +1,16 @@
 @import '../../../styles/variables';
-
+@import '../../../styles/mixins';
+@import '../../../styles/functions';
 .Footer__root {
-  background-color: $color-primary;
   height: 7rem;
-  font-size: 1.5rem;
   font-family: inherit;
   text-align: center;
-  color: $color-black-smoky;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  & > svg {
-    padding: 0 4px;
+  color: $color-primary-200;
+  & svg {
+    margin: 0 3px;
+    color: $color-red;
+  }
+  @include theme() {
+    background-color: theme-get('navbar-bg');
   }
 }

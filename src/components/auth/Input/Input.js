@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import { useField } from 'formik';
 import './Input.scss';
 
@@ -7,7 +8,7 @@ const Input = ({ hasLabel, className, label, ...props }) => {
 
   const InputComp = (
     <>
-      <input className={`Input__root ${className}`} {...field} {...props} />
+      <input className={cn('Input__root', className)} {...field} {...props} />
       {meta.touched && meta.error ? <div className="Input__error">{meta.error}</div> : null}
     </>
   );

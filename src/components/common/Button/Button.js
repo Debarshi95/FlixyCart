@@ -15,6 +15,7 @@ const Button = ({ component, text, variant, className, children, ...props }) => 
     <Component
       className={cn('Button__root', className, {
         [`Button--${variant}`]: true,
+        'Button--disabled': props.disabled,
       })}
       {...props}
     >
@@ -26,8 +27,9 @@ const Button = ({ component, text, variant, className, children, ...props }) => 
 Button.defaultProps = {
   children: '',
   variant: 'contained',
-  to: '/',
   className: '',
   component: 'link',
+  text: '',
+  disabled: false,
 };
 export default Button;
