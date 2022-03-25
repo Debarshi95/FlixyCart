@@ -1,0 +1,18 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/functions';
+
+.Loader__root {
+  min-height: 74vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-primary;
+  & svg {
+    margin: 0 3px;
+    color: $color-red;
+  }
+  @include theme() {
+    background-color: theme-get('background-color');
+  }
+}
