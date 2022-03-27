@@ -1,26 +1,45 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { Button, Input, Typography } from '../../../components';
 import { signIn } from '../../../services/flixycartApi';
 import { validateLogin } from '../../../utils/validations';
+import { useAuth } from '../../../providers/AuthProvider/AuthProvider';
 import './Signin.scss';
+import { setItem } from '../../../utils/helperFuncs';
 
 const Signin = () => {
-  useNavigate();
+  const { user, setUser } = useAuth();
+  const navigate = useNavigate();
 
-  const handleSubmit = async (values, { setErrors, resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     const { email, password } = values;
 
     try {
       const res = await signIn({ email, password });
-      console.log({ res });
+      if (res.status === 200) {
+        setUser(res.data);
+        setItem('user', res.data);
+        navigate('/', { replace: true });
+      }
     } catch (err) {
-      const { message = {}, error = '' } = err.response.data || {};
-      resetForm();
-      setErrors({ ...message, error });
+      let { message = {} } = err.response.data || {};
+      if (typeof message === 'string') {
+        message = { error: message };
+      }
+      resetForm({
+        values: { ...values, password: '' },
+        errors: { ...message },
+        touched: {
+          password: true,
+        },
+      });
     }
   };
+
+  if (user?.id) {
+    return <Navigate to="/" replace />;
+  }
 
   return (
     <div className="Signin__root">

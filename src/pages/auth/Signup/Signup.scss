@@ -1,0 +1,35 @@
+@import '../../../styles//variables';
+@import '../../../styles/functions';
+@import '../../../styles/mixins';
+
+.Signup__root {
+  min-height: calc(100vh - 11.2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include theme() {
+    background-color: theme-get('background-color');
+  }
+}
+.Signup {
+  &__formContainer {
+    width: 100%;
+    max-width: 25rem;
+    padding: 1.25rem 2rem;
+    border-radius: 4px;
+    // min-height: 25rem;
+    box-shadow: rgba(105, 102, 102, 0.02) 0px 1px 3px 0px, rgba(112, 118, 124, 0.15) 0px 0px 0px 1px;
+    @include sm() {
+      box-shadow: none;
+    }
+  }
+
+  &__button {
+    padding: 0.7rem 0.9rem;
+    font-size: 1rem;
+    margin: 1rem 0 1.75rem 0;
+    @include sm() {
+      font-size: 0.9rem;
+    }
+  }
+}
