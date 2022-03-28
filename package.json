@@ -7,13 +7,18 @@
     "@testing-library/react": "^12.0.0",
     "@testing-library/user-event": "^13.2.1",
     "axios": "^0.26.1",
+    "classnames": "^2.3.1",
+    "formik": "^2.2.9",
+    "lodash": "^4.17.21",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "6",
     "react-scripts": "5.0.0",
+    "react-spinners": "^0.11.0",
     "sass": "^1.49.9",
-    "web-vitals": "^2.1.0"
+    "web-vitals": "^2.1.0",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -63,8 +68,5 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.5",
     "prettier": "^2.5.1"
-  },
-  "resolutions": {
-    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
   }
 }

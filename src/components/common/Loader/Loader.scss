@@ -1,16 +1,18 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 @import '../../../styles/functions';
-.Footer__root {
-  height: 7rem;
-  font-family: inherit;
-  text-align: center;
-  color: $color-primary-200;
+
+.Loader__root {
+  min-height: 74vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-primary;
   & svg {
     margin: 0 3px;
     color: $color-red;
   }
   @include theme() {
-    background-color: theme-get('navbar-bg');
+    background-color: theme-get('background-color');
   }
 }

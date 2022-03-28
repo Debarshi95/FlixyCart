@@ -1,15 +1,21 @@
-/* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { BsFillMoonFill, BsSunFill, BsFillCartFill } from 'react-icons/bs';
 import { FaSignOutAlt } from 'react-icons/fa';
 import { useTheme } from '../../../providers/ThemeProvider/ThemeProvider';
+import { useAuth } from '../../../providers/AuthProvider/AuthProvider';
+import { clearItem } from '../../../utils/helperFuncs';
 import './Navbar.scss';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
-  const isLoggedIn = true;
+  const { user, setUser } = useAuth();
+
+  const handleSignout = () => {
+    clearItem('user');
+    setUser(null);
+  };
 
   return (
     <div className="w-full Navbar__root">
@@ -18,12 +24,12 @@ const Navbar = () => {
           FlixyCart
         </NavLink>
         <div className="d-flex w-10 content-between">
-          {isLoggedIn ? (
+          {user?.id ? (
             <>
               <NavLink to="/cart" className="Navbar__IconButton">
                 <BsFillCartFill />
               </NavLink>
-              <button type="button" className="Navbar__IconButton">
+              <button type="button" className="Navbar__IconButton" onClick={handleSignout}>
                 <FaSignOutAlt />
               </button>
             </>
@@ -33,7 +39,7 @@ const Navbar = () => {
               <NavLink to="/signup">SignUp</NavLink>
             </>
           )}
-          <div role="button" className="Navbar__IconButton" onClick={toggleTheme}>
+          <div role="button" tabIndex={0} className="Navbar__IconButton" onClick={toggleTheme}>
             {theme === 'light' ? <BsSunFill /> : <BsFillMoonFill />}
           </div>
         </div>

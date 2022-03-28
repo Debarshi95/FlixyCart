@@ -42,4 +42,18 @@
   &__buttonsContainer {
     gap: 1.5rem;
   }
+
+  &__button {
+    padding: 0.8rem 0;
+    display: inline-block;
+    font-size: 1.15rem;
+    font-weight: bold;
+    @include md() {
+      font-size: 1.1rem;
+    }
+    @include sm() {
+      font-size: 0.9rem;
+      padding: 0.7rem 0;
+    }
+  }
 }

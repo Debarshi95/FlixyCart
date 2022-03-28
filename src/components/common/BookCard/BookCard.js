@@ -29,7 +29,11 @@ const BookCard = ({ children, book }) => {
                 </Typography>
               </div>
               <div className="d-flex content-between items-center">
-                <Button variant="contained" className="BookCard__button mr-1">
+                <Button
+                  variant="contained"
+                  component="button"
+                  className="BookCard__button mr-1 text-bold text-10"
+                >
                   Add To Cart
                 </Button>
                 <Typography variant="h6">Rs 299</Typography>

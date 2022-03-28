@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import './Typography.scss';
 
 const variants = {
@@ -12,7 +13,7 @@ const variants = {
 };
 const Typography = ({ variant, className, ...props }) => {
   const Component = variants[variant] || 'p';
-  return <Component className={`Typography__root ${className}`} {...props} />;
+  return <Component className={cn('Typography__root', className)} {...props} />;
 };
 
 export default Typography;
