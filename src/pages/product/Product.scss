@@ -1,0 +1,18 @@
+@import '../../styles/functions';
+@import '../../styles/mixins';
+@import '../../styles/variables';
+.Product__root {
+  min-height: calc(100vh - 11.2rem);
+  @include theme() {
+    background-color: theme-get('background-color');
+  }
+}
+
+.Product {
+  &__itemContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 0.75rem;
+    padding: 1rem 1rem 0 0;
+  }
+}
