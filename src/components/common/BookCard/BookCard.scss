@@ -21,10 +21,8 @@
   @include theme() {
     background-color: theme-get('card-bg');
   }
-  height: 26rem;
-  @include md() {
-    height: 26rem;
-  }
+  height: 28rem;
+
   & > a {
     display: contents;
   }
@@ -43,7 +41,7 @@
 
   &__button {
     padding: 0.5rem 1rem;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     cursor: pointer;
     margin-top: 6px;
   }

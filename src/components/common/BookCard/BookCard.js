@@ -14,17 +14,17 @@ const BookCard = ({ children, book }) => {
           {children || (
             <>
               <div className="text-black">
-                <Typography variant="h6" className="BookCard__title">
+                <Typography variant="h6" className="BookCard__title text-10">
                   {book.title}
                 </Typography>
                 <div className="d-flex">
                   {book.categories.map((item, idx) => (
-                    <p key={idx} className="text-primary">
-                      {item}
+                    <p key={idx} className="Typography--primary Typography--xs">
+                      {item}{' '}
                     </p>
                   ))}
                 </div>
-                <Typography variant="p" className="text-black text-bold">
+                <Typography variant="p" className="text-black text-bold Typography--xs">
                   {book.author}
                 </Typography>
               </div>
@@ -32,11 +32,11 @@ const BookCard = ({ children, book }) => {
                 <Button
                   variant="contained"
                   component="button"
-                  className="BookCard__button mr-1 text-bold text-10"
+                  className="BookCard__button mr-1 text-bold"
                 >
                   Add To Cart
                 </Button>
-                <Typography variant="h6">Rs 299</Typography>
+                <Typography variant="h6">Rs {book.price}</Typography>
               </div>
             </>
           )}

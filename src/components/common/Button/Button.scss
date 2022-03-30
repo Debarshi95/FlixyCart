@@ -12,8 +12,10 @@
   border-radius: 4px;
   cursor: pointer;
   min-width: 10rem;
+  font-family: inherit;
+
   @include md() {
-    min-width: 10rem;
+    min-width: 8rem;
   }
   @include sm() {
     min-width: 6rem;
@@ -27,7 +29,7 @@
   }
 
   &--outlined {
-    border: 2px solid $color-white-smoky;
+    border: 1.8px solid $color-primary-200;
     box-sizing: content-box;
     @include theme() {
       color: theme-get('text-color');
