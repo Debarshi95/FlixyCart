@@ -32,7 +32,6 @@ const FilterProvider = ({ children }) => {
 
   const getFilteredProducts = useCallback(
     (productList, { fastDeliveryOnly, inStockOnly, categories, ratedBy, price }) => {
-      console.log({ price });
       return productList
         .filter((item) => (fastDeliveryOnly ? item.fastDelivery : true))
         .filter((item) => (inStockOnly ? item.inStock : true))

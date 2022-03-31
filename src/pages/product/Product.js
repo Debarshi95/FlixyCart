@@ -10,12 +10,10 @@ const Product = () => {
   } = useProducts();
   const { filteredState, getSortedProducts, getFilteredProducts } = useFilter();
 
-  console.log({ filteredState });
   const sortedProducts = getSortedProducts(products, filteredState.sortBy);
 
   const filteredProducts = getFilteredProducts(sortedProducts, filteredState);
 
-  console.log({ filteredProducts, sortedProducts });
   return (
     <div className="Product__root w-full d-flex">
       <Sidebar />

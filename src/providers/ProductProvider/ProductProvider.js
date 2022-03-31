@@ -33,7 +33,7 @@ const ProductProvider = ({ children }) => {
 
     fetchProducts();
   }, []);
-  console.log({ productState });
+
   const value = useMemo(() => ({ productState }), [productState]);
 
   return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>;
