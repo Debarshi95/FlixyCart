@@ -6,11 +6,13 @@ $themes: (
     text-color: variables.$color-white-smoky,
     navbar-bg: variables.$color-black-smoky,
     card-bg: variables.$color-black-smoky,
+    common-bg: variables.$color-black,
   ),
   light: (
     background-color: variables.$color-light-bg-default,
     text-color: variables.$color-black-smoky,
-    navbar-bg: variables.$color-white-smoky,
+    navbar-bg: variables.$color-white,
     card-bg: variables.$color-white-smoky,
+    common-bg: variables.$color-white,
   ),
 );
