@@ -25,11 +25,12 @@
   }
 
   &__button {
-    padding: 0.7rem 0.9rem;
+    padding: 0.4rem 0.9rem;
     font-size: 1rem;
     margin: 14px 0;
     @include sm() {
       font-size: 0.9rem;
     }
+    width: 100%;
   }
 }

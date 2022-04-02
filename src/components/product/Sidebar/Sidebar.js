@@ -1,4 +1,5 @@
 import React from 'react';
+import cn from 'classnames';
 import SelectInput from '../../common/SelectInput/SelectInput';
 import Typography from '../../common/Typography/Typography';
 import { useFilter } from '../../../providers/FilterProvider/FilterProvider';
@@ -7,7 +8,7 @@ import Button from '../../common/Button/Button';
 import PriceSlider from '../PriceSlider/PriceSlider';
 import './Sidebar.scss';
 
-const Sidebar = () => {
+const Sidebar = ({ xs, showMobileSidebar, ...props }) => {
   const {
     filteredState: { sortBy, ratedBy, categories },
     dispatch,
@@ -30,7 +31,10 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="Sidebar__root">
+    <aside
+      className={cn('Sidebar__root', { 'Sidebar--mobile': xs, 'Sidebar--open': showMobileSidebar })}
+      {...props}
+    >
       <Typography variant="h6" className="text-center">
         FITLERS
       </Typography>

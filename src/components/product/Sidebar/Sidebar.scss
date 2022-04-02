@@ -3,11 +3,10 @@
 @import '../../../styles/functions';
 
 .Sidebar__root {
-  max-width: 16rem;
-  width: 100%;
+  width: 17rem;
   height: 100vh;
   position: sticky;
-  top: 0;
+  top: 5.4rem;
   margin: 1rem;
   border-radius: 4px;
   padding: 1rem;
@@ -17,5 +16,26 @@
   }
   & input {
     cursor: pointer;
+  }
+
+  @include sm() {
+    top: 0;
+  }
+}
+.Sidebar {
+  &--mobile {
+    position: fixed;
+    z-index: 3;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+    margin: 0;
+    top: 4.4rem;
+  }
+  &--open {
+    transform: translateX(0);
+  }
+
+  &--none {
+    transform: translateX(-100%);
   }
 }

@@ -4,22 +4,14 @@
 
 .Button__root {
   border: 0;
-  width: 100%;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
   cursor: pointer;
-  min-width: 10rem;
+  min-width: 6rem;
   font-family: inherit;
-
-  @include md() {
-    min-width: 8rem;
-  }
-  @include sm() {
-    min-width: 6rem;
-  }
 }
 
 .Button {

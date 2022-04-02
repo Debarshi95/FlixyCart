@@ -24,20 +24,23 @@ const BookCard = ({ children, book }) => {
                     </p>
                   ))}
                 </div>
-                <Typography variant="p" className="text-black text-bold Typography--xs">
-                  {book.author}
-                </Typography>
+                <div className="d-flex content-between">
+                  <Typography variant="p" className="text-black text-bold Typography--xs">
+                    {book.author}
+                  </Typography>
+                  <Typography variant="p" className="text-black text-bold Typography--xs">
+                    Rs {book.price}
+                  </Typography>
+                </div>
               </div>
-              <div className="d-flex content-between items-center">
-                <Button
-                  variant="contained"
-                  component="button"
-                  className="BookCard__button mr-1 text-bold"
-                >
-                  Add To Cart
-                </Button>
-                <Typography variant="h6">Rs {book.price}</Typography>
-              </div>
+
+              <Button
+                variant="contained"
+                component="button"
+                className="BookCard__button  text-bold w-full"
+              >
+                Add To Cart
+              </Button>
             </>
           )}
         </div>

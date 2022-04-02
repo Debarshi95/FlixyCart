@@ -33,7 +33,7 @@ const FilterProvider = ({ children }) => {
   const getFilteredProducts = useCallback(
     (productList, { fastDeliveryOnly, inStockOnly, categories, ratedBy, price }) => {
       return productList
-        .filter((item) => (fastDeliveryOnly ? item.fastDelivery : true))
+        ?.filter((item) => (fastDeliveryOnly ? item.fastDelivery : true))
         .filter((item) => (inStockOnly ? item.inStock : true))
         .filter((item) =>
           categories ? categories.some((category) => item.categories.includes(category)) : true
