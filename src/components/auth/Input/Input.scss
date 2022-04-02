@@ -7,7 +7,7 @@
     padding: 0.65rem 1rem;
     outline: none;
     width: 100%;
-    margin: 0.65rem 0;
+    margin: 0.5rem 0 0.35rem 0;
     border: none;
     border-radius: 3px;
     background-color: $color-white-smoky;
@@ -16,17 +16,16 @@
 
   &__error {
     color: $color-red;
-    margin: 0 0 4px 4px;
-    font-size: 0.85rem;
+    margin-left: 4px;
+    margin-top: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
   }
   &__label {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-family: inherit;
     @include theme() {
       color: theme-get('text-color');
-    }
-    @include sm() {
-      font-size: 0.95rem;
     }
   }
 }
