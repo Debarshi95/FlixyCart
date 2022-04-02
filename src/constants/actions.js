@@ -1,7 +1,24 @@
-const loadProductActions = Object.freeze({
+const productActions = Object.freeze({
   REQUEST_GET_PRODUCTS: 'REQUEST_GET_PRODUCTS',
-  REQUEST_GET_PRODUCTS_SUCCESS: 'REQUEST_GET_PRODUCTS_SUCCESS',
-  REQUEST_GET_PRODUCTS_FAILURE: 'REQUEST_GET_PRODUCTS_FAILURE',
+  SUCCESS_GET_PRODUCTS: 'SUCCESS_GET_PRODUCTS',
+  FAILURE_GET_PRODUCTS: 'FAILURE_GET_PRODUCTS',
 });
 
-export { loadProductActions };
+const sortActions = Object.freeze({
+  CATEGORIES: 'CATEGORIES',
+  TOGGLE_INVENTORY: 'TOGGLE_INVENTORY',
+  TOGGLE_DELIVERY: 'TOGGLE_DELIVERY',
+  SORT: 'SORT',
+  HIGH_TO_LOW: 'HIGH_TO_LOW',
+  LOW_TO_HIGH: 'LOW_TO_HIGH',
+  RATINGS: 'RATINGS',
+  PRICE: 'PRICE',
+  CLEAR: 'CLEAR',
+});
+
+const ratings = Object.freeze({
+  FOUR_AND_HALF_STARS: 4.5,
+  FOUR_STARS: 4,
+  THREE_STARS: 3,
+});
+export { productActions, sortActions, ratings };

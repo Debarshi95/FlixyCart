@@ -1,0 +1,41 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+@import '../../../styles/functions';
+
+.Sidebar__root {
+  width: 17rem;
+  height: 100vh;
+  position: sticky;
+  top: 5.4rem;
+  margin: 1rem;
+  border-radius: 4px;
+  padding: 1rem;
+  @include theme() {
+    background-color: theme-get('card-bg');
+    color: theme-get('text-color');
+  }
+  & input {
+    cursor: pointer;
+  }
+
+  @include sm() {
+    top: 0;
+  }
+}
+.Sidebar {
+  &--mobile {
+    position: fixed;
+    z-index: 3;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+    margin: 0;
+    top: 4.4rem;
+  }
+  &--open {
+    transform: translateX(0);
+  }
+
+  &--none {
+    transform: translateX(-100%);
+  }
+}

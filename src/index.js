@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { App } from './pages';
-import { AuthProvider, ThemeProvider } from './providers';
+import { AuthProvider, ProductProvider, ThemeProvider } from './providers';
 import reportWebVitals from './reportWebVitals';
 import './styles/index.scss';
 
@@ -9,7 +9,9 @@ ReactDOM.render(
   <React.StrictMode>
     <AuthProvider>
       <ThemeProvider>
-        <App />
+        <ProductProvider>
+          <App />
+        </ProductProvider>
       </ThemeProvider>
     </AuthProvider>
   </React.StrictMode>,

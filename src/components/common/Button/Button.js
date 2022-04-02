@@ -28,7 +28,7 @@ Button.defaultProps = {
   children: '',
   variant: 'contained',
   className: '',
-  component: 'link',
+  component: 'button',
   text: '',
   disabled: false,
 };

@@ -1,11 +1,13 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Navbar, Footer, Loader, PrivateRoute } from '../components';
+import { Navbar, Loader, PrivateRoute } from '../components';
+import { FilterProvider } from '../providers';
 
 const LazyHome = React.lazy(() => import('./home/Home'));
 const LazySignin = React.lazy(() => import('./auth/Signin/Signin'));
 const LazySignup = React.lazy(() => import('./auth/Signup/Signup'));
 const LazyCart = React.lazy(() => import('./cart/Cart'));
+const LazyBook = React.lazy(() => import('./product/Product'));
 
 const App = () => {
   return (
@@ -47,8 +49,17 @@ const App = () => {
             </Suspense>
           }
         />
+        <Route
+          path="/books"
+          element={
+            <Suspense fallback={<Loader />}>
+              <FilterProvider>
+                <LazyBook />
+              </FilterProvider>
+            </Suspense>
+          }
+        />
       </Routes>
-      <Footer />
     </Router>
   );
 };

@@ -4,6 +4,9 @@
 
 .Navbar__root {
   padding: 1.25rem 0;
+  position: sticky;
+  z-index: 999;
+  top: 0;
   @include theme() {
     background-color: theme-get('navbar-bg');
   }

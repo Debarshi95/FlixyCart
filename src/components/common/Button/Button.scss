@@ -4,20 +4,14 @@
 
 .Button__root {
   border: 0;
-  width: 100%;
   display: flex;
   text-align: center;
   align-items: center;
   justify-content: center;
   border-radius: 4px;
   cursor: pointer;
-  min-width: 10rem;
-  @include md() {
-    min-width: 10rem;
-  }
-  @include sm() {
-    min-width: 6rem;
-  }
+  min-width: 6rem;
+  font-family: inherit;
 }
 
 .Button {
@@ -27,7 +21,7 @@
   }
 
   &--outlined {
-    border: 2px solid $color-white-smoky;
+    border: 1.8px solid $color-primary-200;
     box-sizing: content-box;
     @include theme() {
       color: theme-get('text-color');

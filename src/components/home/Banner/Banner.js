@@ -12,7 +12,7 @@ const Banner = () => {
         <div className="Banner__container">
           <Typography variant="h1">Buy your best books</Typography>
           <Typography variant="h5" className="my-1 text-center" style={{ fontWeight: 500 }}>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Best and top selling books in the world
           </Typography>
           <div className="Banner__buttonsContainer d-flex">
             <Button variant="contained" component="link" to="#trending" className="Banner__button">

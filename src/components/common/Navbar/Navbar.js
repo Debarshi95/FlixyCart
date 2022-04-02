@@ -23,7 +23,7 @@ const Navbar = () => {
         <NavLink to="/" className="text-12">
           FlixyCart
         </NavLink>
-        <div className="d-flex w-10 content-between">
+        <div className="d-flex w-10 content-between items-center">
           {user?.id ? (
             <>
               <NavLink to="/cart" className="Navbar__IconButton">

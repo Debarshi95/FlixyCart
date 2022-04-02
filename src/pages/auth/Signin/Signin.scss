@@ -3,7 +3,7 @@
 @import '../../../styles/mixins';
 
 .Signin__root {
-  min-height: calc(100vh - 11.2rem);
+  min-height: calc(100vh - 4rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,11 +25,12 @@
   }
 
   &__button {
-    padding: 0.7rem 0.9rem;
+    padding: 0.4rem 0.9rem;
     font-size: 1rem;
     margin: 14px 0;
     @include sm() {
       font-size: 0.9rem;
     }
+    width: 100%;
   }
 }

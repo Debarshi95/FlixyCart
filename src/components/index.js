@@ -10,3 +10,6 @@ export { default as CardImage } from './common/CardImage/CardImage';
 export { default as BannerCard } from './home/BannerCard/BannerCard';
 export { default as Banner } from './home/Banner/Banner';
 export { default as Input } from './auth/Input/Input';
+export { default as Sidebar } from './product/Sidebar/Sidebar';
+export { default as PriceSlider } from './product/PriceSlider/PriceSlider';
+export { default as SelectInput } from './common/SelectInput/SelectInput';
