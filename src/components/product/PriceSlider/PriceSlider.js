@@ -26,7 +26,7 @@ const PriceSlider = ({ min, max, className, sliderClassName, sliderProps, ...pro
         {...sliderProps}
         onChange={handleOnChange}
       />
-      <Typography variant="p" className="Typography--xs text-bold px-half text-center">
+      <Typography variant="p" size="xs" textbold className="px-half" align="center">
         Rs. {value}
       </Typography>
     </div>

@@ -11,7 +11,7 @@ const Banner = () => {
       <div className="h-full d-flex">
         <div className="Banner__container">
           <Typography variant="h1">Buy your best books</Typography>
-          <Typography variant="h5" className="my-1 text-center" style={{ fontWeight: 500 }}>
+          <Typography variant="h5" className="my-1 text-center Typography--500">
             Best and top selling books in the world
           </Typography>
           <div className="Banner__buttonsContainer d-flex">

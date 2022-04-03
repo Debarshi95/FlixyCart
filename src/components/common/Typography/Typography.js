@@ -10,10 +10,23 @@ const variants = {
   h5: 'h5',
   h6: 'h6',
   p: 'p',
+  div: 'div',
 };
-const Typography = ({ variant, className, ...props }) => {
+const Typography = ({ variant, className, size, textbold, ...props }) => {
   const Component = variants[variant] || 'p';
-  return <Component className={cn('Typography__root', className)} {...props} />;
+  return (
+    <Component
+      className={cn('Typography__root', className, {
+        [`Typography--${size}`]: true,
+        'text-bold': textbold,
+      })}
+      {...props}
+    />
+  );
+};
+Typography.defaultProps = {
+  size: 'md',
+  textbold: false,
 };
 
 export default Typography;
