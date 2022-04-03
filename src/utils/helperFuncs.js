@@ -13,3 +13,11 @@ export const getItem = (key = '') => {
 export const clearItem = (key = '') => {
   localStorage.removeItem(key);
 };
+
+export const calculateTotalPrice = (items = []) => {
+  return items.reduce((acc, curr) => {
+    const { bookId, quantity } = curr;
+    acc += Number(bookId.price) * Number(quantity);
+    return acc;
+  }, 0);
+};
