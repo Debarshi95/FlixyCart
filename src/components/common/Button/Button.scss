@@ -22,7 +22,6 @@
 
   &--outlined {
     border: 1.8px solid $color-primary-200;
-    box-sizing: content-box;
     @include theme() {
       color: theme-get('text-color');
     }
