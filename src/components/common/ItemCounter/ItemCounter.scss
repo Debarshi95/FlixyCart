@@ -1,0 +1,31 @@
+@import '../../../styles/mixins';
+@import '../../../styles/functions';
+@import '../../../styles/variables';
+
+.ItemCounter__root {
+  width: 7rem;
+  @include theme() {
+    border: 1.5px solid theme-get('text-color');
+  }
+  border-radius: 4px;
+  font-size: 1rem;
+}
+.ItemCounter {
+  &__button {
+    background: transparent;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.3rem 0.5rem;
+    border: none;
+    cursor: pointer;
+    @include theme() {
+      color: theme-get('text-color');
+    }
+  }
+
+  &__text {
+    margin: 0 9px;
+  }
+}
