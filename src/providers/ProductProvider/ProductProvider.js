@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useMemo, useReducer, useContext } from 'react';
-import productReducer from '../../pages/product/reducer/productReducer';
+import productReducer from '../../reducers/productReducer';
 import { productActions } from '../../constants/actions';
 import { getProducts } from '../../services/flixycartApi';
 

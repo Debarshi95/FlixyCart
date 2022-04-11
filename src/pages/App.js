@@ -8,7 +8,7 @@ const LazyHome = React.lazy(() => import('./home/Home'));
 const LazySignin = React.lazy(() => import('./auth/Signin/Signin'));
 const LazySignup = React.lazy(() => import('./auth/Signup/Signup'));
 const LazyCart = React.lazy(() => import('./cart/Cart'));
-const LazyBook = React.lazy(() => import('./product/Product'));
+const LazyBook = React.lazy(() => import('./product/Product/Product'));
 
 const App = () => {
   return (

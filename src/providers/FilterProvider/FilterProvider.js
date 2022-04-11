@@ -1,6 +1,6 @@
 import React, { createContext, useMemo, useCallback, useReducer, useContext } from 'react';
 import { sortActions } from '../../constants/actions';
-import { filterReducer } from '../../pages/product/reducer/filterReducer';
+import { filterReducer } from '../../reducers/filterReducer';
 
 const initialState = {
   fastDeliveryOnly: false,

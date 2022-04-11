@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useProducts } from '../../providers/ProductProvider/ProductProvider';
-import { useFilter } from '../../providers/FilterProvider/FilterProvider';
-import { BookCard, Button, Sidebar } from '../../components';
+import { useProducts } from '../../../providers/ProductProvider/ProductProvider';
+import { useFilter } from '../../../providers/FilterProvider/FilterProvider';
+import { BookCard, Button, Sidebar } from '../../../components';
 import './Product.scss';
 
 const Product = () => {
