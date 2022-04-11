@@ -81,6 +81,5 @@ BookCard.defaultProps = {
   contentClassName: '',
   orientation: 'col',
   cardHeight: '24',
-  smHeight: false,
 };
 export default memo(BookCard);

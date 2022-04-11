@@ -1,4 +1,5 @@
 import React from 'react';
+import toast from 'react-hot-toast';
 import { updateCart } from '../../../services/flixycartApi';
 import BookCard from '../BookCard/BookCard';
 import Typography from '../Typography/Typography';
@@ -21,6 +22,7 @@ const RowSection = ({ title, align, books, ...props }) => {
               onClick: (e) => {
                 e.preventDefault();
                 updateCart({ id: book._id, quantity: 1 });
+                toast.success('Added to Cart!!');
               },
             }}
           />

@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 import { Navbar, Loader, PrivateRoute } from '../components';
 import { FilterProvider } from '../providers';
 
@@ -60,6 +61,7 @@ const App = () => {
           }
         />
       </Routes>
+      <Toaster />
     </Router>
   );
 };
