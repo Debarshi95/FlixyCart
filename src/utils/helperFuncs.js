@@ -1,6 +1,6 @@
-export const setItem = (key = '', data = null) => {
+export const setItem = (key = '', data = null, shouldRemoveItem = false) => {
   const itemExists = JSON.parse(localStorage.getItem(key));
-  if (itemExists) {
+  if (shouldRemoveItem && itemExists) {
     localStorage.removeItem(key);
   }
   localStorage.setItem(key, JSON.stringify(data));
