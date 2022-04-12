@@ -6,12 +6,6 @@
   @include theme() {
     color: theme-get('text-color');
   }
-  @include sm() {
-    font-size: 0.8rem;
-  }
-  @include md() {
-    font-size: 1.25rem;
-  }
 }
 
 .Typography {
@@ -58,5 +52,10 @@
   }
   &--primary {
     color: $color-primary !important;
+  }
+
+  &--ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

@@ -12,6 +12,14 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [],
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+        extensions: ['.js', '.ts', '.d.ts', '.tsx'],
+      },
+    },
+  },
   rules: {
     'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
     'prettier/prettier': 'error',
@@ -28,7 +36,7 @@ module.exports = {
         unnamedComponents: 'arrow-function',
       },
     ],
-    'no-param-reassign': ['error', { props: true, ignorePropertyModificationsFor: ['e', 'state'] }],
+    'no-param-reassign': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/prop-types': 'off',
     'import/prefer-default-export': 'off',

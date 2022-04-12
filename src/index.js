@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './pages';
+import App from './pages/App';
 import { AuthProvider, ProductProvider, ThemeProvider } from './providers';
 import reportWebVitals from './reportWebVitals';
 import './styles/index.scss';

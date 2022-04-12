@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { RowSection, Banner, Footer } from '../../components';
-import { getProducts } from '../../services/flixycartApi';
+import toast from 'react-hot-toast';
+import { RowSection, Banner, Footer } from 'components';
+import { getProducts } from 'services/flixycartApi';
 import './Home.scss';
 
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
           setProducts(res.data.result);
         }
       } catch (error) {
-        //
+        toast.error('Some error occurred!');
       }
     };
     fetchProducts();

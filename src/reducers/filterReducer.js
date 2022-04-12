@@ -1,4 +1,4 @@
-import { sortActions } from '../../../constants/actions';
+import { sortActions } from 'constants/actions';
 
 export const filterReducer = (state, action) => {
   switch (action.type) {

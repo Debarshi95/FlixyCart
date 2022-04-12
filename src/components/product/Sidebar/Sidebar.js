@@ -1,11 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
-import SelectInput from '../../common/SelectInput/SelectInput';
-import Typography from '../../common/Typography/Typography';
-import { useFilter } from '../../../providers/FilterProvider/FilterProvider';
-import { sortActions, ratings } from '../../../constants/actions';
-import Button from '../../common/Button/Button';
-import PriceSlider from '../PriceSlider/PriceSlider';
+import SelectInput from 'components/common/SelectInput/SelectInput';
+import Typography from 'components/common/Typography/Typography';
+import { useFilter } from 'providers/FilterProvider/FilterProvider';
+import { sortActions, ratings } from 'constants/actions';
+import Button from 'components/common/Button/Button';
+import PriceSlider from 'components/product/PriceSlider/PriceSlider';
 import './Sidebar.scss';
 
 const Sidebar = ({ xs, showMobileSidebar, ...props }) => {
@@ -35,12 +35,12 @@ const Sidebar = ({ xs, showMobileSidebar, ...props }) => {
       className={cn('Sidebar__root', { 'Sidebar--mobile': xs, 'Sidebar--open': showMobileSidebar })}
       {...props}
     >
-      <Typography variant="h6" className="text-center">
+      <Typography variant="h6" className="text-center" size="sm">
         FITLERS
       </Typography>
 
       <article>
-        <Typography variant="p" className="Typography--xs text-bold">
+        <Typography variant="p" size="sm" textbold>
           Price
         </Typography>
         <PriceSlider
@@ -53,7 +53,7 @@ const Sidebar = ({ xs, showMobileSidebar, ...props }) => {
       </article>
 
       <article>
-        <Typography variant="h6" className="Typography--xs">
+        <Typography variant="h6" size="sm">
           Sort By
         </Typography>
         <SelectInput
@@ -79,7 +79,7 @@ const Sidebar = ({ xs, showMobileSidebar, ...props }) => {
       </article>
 
       <article className="my-1">
-        <Typography variant="h6" className="Typography--xs">
+        <Typography variant="h6" size="sm">
           Ratings
         </Typography>
         <SelectInput
@@ -119,7 +119,7 @@ const Sidebar = ({ xs, showMobileSidebar, ...props }) => {
       </article>
 
       <article>
-        <Typography variant="h6" className="Typography--xs">
+        <Typography variant="h6" size="sm">
           Categories
         </Typography>
         <SelectInput

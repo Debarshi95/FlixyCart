@@ -1,5 +1,5 @@
 import React from 'react';
-import Typography from '../../common/Typography/Typography';
+import Typography from 'components/common/Typography/Typography';
 
 const BannerCard = ({ card }) => {
   return (

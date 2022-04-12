@@ -5,12 +5,14 @@ $themes: (
     background-color: variables.$color-dark-bg-default,
     text-color: variables.$color-white-smoky,
     navbar-bg: variables.$color-black-smoky,
-    card-bg: variables.$color-black-smoky,
+    card-bg: variables.$color-black,
+    common-bg: variables.$color-black,
   ),
   light: (
     background-color: variables.$color-light-bg-default,
     text-color: variables.$color-black-smoky,
-    navbar-bg: variables.$color-white-smoky,
-    card-bg: variables.$color-white-smoky,
+    navbar-bg: variables.$color-white,
+    card-bg: variables.$color-white,
+    common-bg: variables.$color-white,
   ),
 );

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
-import { Button, Input, Typography } from '../../../components';
-import { signIn } from '../../../services/flixycartApi';
-import { validateLogin } from '../../../utils/validations';
-import { useAuth } from '../../../providers/AuthProvider/AuthProvider';
+import { Button, Input, Typography } from 'components';
+import { signIn } from 'services/flixycartApi';
+import { validateLogin } from 'utils/validations';
+import { useAuth } from 'providers/AuthProvider/AuthProvider';
+import { setItem } from 'utils/helperFuncs';
 import './Signin.scss';
-import { setItem } from '../../../utils/helperFuncs';
 
 const Signin = () => {
   const { user, setUser } = useAuth();

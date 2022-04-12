@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useProducts } from '../../providers/ProductProvider/ProductProvider';
-import { useFilter } from '../../providers/FilterProvider/FilterProvider';
-import { BookCard, Button, Sidebar } from '../../components';
+import { useProducts } from 'providers/ProductProvider/ProductProvider';
+import { useFilter } from 'providers/FilterProvider/FilterProvider';
+import { BookCard, Button, Sidebar } from 'components';
 import './Product.scss';
 
 const Product = () => {
@@ -28,7 +28,7 @@ const Product = () => {
   return (
     <div className="Product__root w-full">
       {xs && (
-        <div className="d-flex content-end mt-1 mx-1">
+        <div className="d-flex content-end mx-1">
           <Button
             variant="outlined"
             component="button"
@@ -43,7 +43,7 @@ const Product = () => {
         <Sidebar xs={xs} showMobileSidebar={showMobileSidebar} />
         <section className="Product__itemContainer w-full">
           {filteredProducts?.map((book) => (
-            <BookCard book={book} key={book._id} />
+            <BookCard book={book} key={book._id} imageProps={{ width: '100%', height: '65%' }} />
           ))}
         </section>
       </div>

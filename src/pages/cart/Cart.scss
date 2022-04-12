@@ -1,0 +1,54 @@
+@import '../../styles/functions';
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.Cart__root {
+  min-height: calc(100vh - 4.4rem);
+  padding: 1rem;
+
+  @include theme() {
+    background-color: theme-get('background-color');
+  }
+}
+.Cart {
+  &__wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-areas: 'CardContainer PriceCard';
+    @include md() {
+      max-width: 95%;
+      grid-template-areas: 'CardContainer' 'PriceCard';
+    }
+    @include sm() {
+      max-width: 100%;
+    }
+  }
+  &__priceCard {
+    padding: 1rem 1.75rem;
+    max-width: 24rem;
+    height: fit-content;
+    border-radius: 4px;
+    grid-area: PriceCard;
+    @include theme() {
+      background-color: theme-get('background-color');
+      color: theme-get('text-color');
+    }
+  }
+
+  &__productContainer {
+    grid-area: CardContainer;
+    margin-right: 1rem;
+    @include md() {
+      margin: 0;
+    }
+  }
+
+  &__button {
+    padding: 0.5rem 1rem;
+  }
+  &__button:nth-child(2) {
+    margin-top: 0.5rem;
+    padding: 0.35rem 1rem;
+  }
+}
