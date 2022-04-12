@@ -23,8 +23,8 @@ const ProductProvider = ({ children }) => {
       dispatch({ type: REQUEST_GET_PRODUCTS });
       try {
         const res = await getProducts();
-        if (res.status === 200) {
-          dispatch({ type: SUCCESS_GET_PRODUCTS, payload: res.data.result });
+        if (res?.result) {
+          dispatch({ type: SUCCESS_GET_PRODUCTS, payload: res.result });
         }
       } catch (error) {
         dispatch({ type: FAILURE_GET_PRODUCTS, payload: error?.message });
