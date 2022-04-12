@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { useMediaQuery } from 'react-responsive';
 import toast from 'react-hot-toast';
+import { useMediaQuery } from 'react-responsive';
 import { Typography, Button, BookCard, ItemCounter } from 'components';
 import { calculateTotalPrice, setItem } from 'utils/helperFuncs';
 import { getCart, removeFromCart, updateCart } from 'services/flixycartApi';
@@ -12,9 +12,13 @@ const Cart = () => {
 
   useEffect(() => {
     const getCartDetails = async () => {
-      const res = await getCart();
-      if (res.status === 200) {
-        setCart(res.data.result);
+      try {
+        const res = await getCart();
+        if (res.status === 200) {
+          setCart(res.data.result);
+        }
+      } catch (error) {
+        toast.error('Oops!!Some error occurred');
       }
     };
     getCartDetails();

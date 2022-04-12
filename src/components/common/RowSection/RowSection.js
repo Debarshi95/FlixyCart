@@ -6,6 +6,15 @@ import Typography from 'components/common/Typography/Typography';
 import './RowSection.scss';
 
 const RowSection = ({ title, align, books, ...props }) => {
+  const handleButtonClick = async (id) => {
+    try {
+      await updateCart({ id, quantity: 1 });
+      toast.success('Added to Cart!!');
+    } catch (error) {
+      toast.error("Oops!! Couldn't add to cart!!");
+    }
+  };
+
   return (
     <section className="flex-1 RowSection__root" {...props}>
       <Typography variant="h4" align={align} className="RowSection__title">
@@ -21,8 +30,7 @@ const RowSection = ({ title, align, books, ...props }) => {
             buttonProps={{
               onClick: (e) => {
                 e.preventDefault();
-                updateCart({ id: book._id, quantity: 1 });
-                toast.success('Added to Cart!!');
+                handleButtonClick(book._id);
               },
             }}
           />
