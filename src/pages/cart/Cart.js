@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useMediaQuery } from 'react-responsive';
 import { Typography, Button, BookCard, ItemCounter } from 'components';
-import { calculateTotalPrice, setItem } from 'utils/helperFuncs';
+import { calculateTotalPrice, getItem, setItem } from 'utils/helperFuncs';
 import { getCart, removeFromCart, updateCart } from 'services/flixycartApi';
 import './Cart.scss';
 
@@ -42,8 +42,13 @@ const Cart = () => {
 
   const moveToWishlist = (e, item) => {
     e.preventDefault();
-    const wishlistData = [];
-    wishlistData.push(item);
+    let wishlistData = [];
+    const prevData = getItem('wishlist');
+    if (prevData) {
+      wishlistData = [...prevData, item];
+    } else {
+      wishlistData.push(item);
+    }
     setItem('wishlist', wishlistData);
     handleRemoveFromCart(e, item._id);
     toast.success('Moved to Wishlist!!');
