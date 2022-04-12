@@ -15,11 +15,11 @@ const Signup = () => {
   const handleSubmit = async (values, { resetForm }) => {
     const { username, email, password, confirmPassword } = values;
     try {
-      const res = await signUp({ username, email, password, confirmPassword });
+      const resUser = await signUp({ username, email, password, confirmPassword });
 
-      if (res?.id) {
-        setUser({ ...res });
-        setItem('user', res.data);
+      if (resUser?.id) {
+        setUser({ ...resUser });
+        setItem('user', { ...resUser });
         navigate('/', { replace: true });
       }
     } catch (err) {

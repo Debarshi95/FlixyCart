@@ -16,10 +16,10 @@ const Signin = () => {
     const { email, password } = values;
 
     try {
-      const res = await signIn({ email, password });
-      if (res?.id) {
-        setUser({ ...res });
-        setItem('user', res.data);
+      const resUser = await signIn({ email, password });
+      if (resUser?.id) {
+        setUser({ ...resUser });
+        setItem('user', { ...resUser });
         navigate('/', { replace: true });
       }
     } catch (err) {
