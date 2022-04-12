@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { Button, Input, Typography } from 'components';
 import { signUp } from 'services/flixycartApi';
@@ -9,7 +9,7 @@ import { setItem } from 'utils/helperFuncs';
 import './Signup.scss';
 
 const Signup = () => {
-  const { setUser } = useAuth();
+  const { user, setUser } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -17,8 +17,8 @@ const Signup = () => {
     try {
       const res = await signUp({ username, email, password, confirmPassword });
 
-      if (res.status === 200) {
-        setUser(res.data);
+      if (res?.id) {
+        setUser({ ...res });
         setItem('user', res.data);
         navigate('/', { replace: true });
       }
@@ -37,7 +37,9 @@ const Signup = () => {
       });
     }
   };
-
+  if (user?.id) {
+    return <Navigate to="/" replace />;
+  }
   return (
     <div className="Signup__root">
       <div className="Signup__formContainer d-flex flex-col">

@@ -27,6 +27,7 @@
     }
     @include sm() {
       box-shadow: none;
+      height: 100%;
     }
   }
 

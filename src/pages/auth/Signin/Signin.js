@@ -17,8 +17,8 @@ const Signin = () => {
 
     try {
       const res = await signIn({ email, password });
-      if (res.status === 200) {
-        setUser(res.data);
+      if (res?.id) {
+        setUser({ ...res });
         setItem('user', res.data);
         navigate('/', { replace: true });
       }
