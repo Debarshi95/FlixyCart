@@ -9,6 +9,7 @@ const LazySignin = React.lazy(() => import('./auth/Signin/Signin'));
 const LazySignup = React.lazy(() => import('./auth/Signup/Signup'));
 const LazyCart = React.lazy(() => import('./cart/Cart'));
 const LazyBook = React.lazy(() => import('./product/Product/Product'));
+const LazyWishlist = React.lazy(() => import('./wishlist/Wishlist'));
 
 const App = () => {
   return (
@@ -57,6 +58,16 @@ const App = () => {
               <FilterProvider>
                 <LazyBook />
               </FilterProvider>
+            </Suspense>
+          }
+        />
+        <Route
+          path="/wishlist"
+          element={
+            <Suspense fallback={<Loader />}>
+              <PrivateRoute>
+                <LazyWishlist />
+              </PrivateRoute>
             </Suspense>
           }
         />
