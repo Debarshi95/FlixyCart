@@ -1,8 +1,8 @@
 import React from 'react';
 import toast from 'react-hot-toast';
-import { updateCart } from '../../../services/flixycartApi';
-import BookCard from '../BookCard/BookCard';
-import Typography from '../Typography/Typography';
+import { updateCart } from 'services/flixycartApi';
+import BookCard from 'components/common/BookCard/BookCard';
+import Typography from 'components/common/Typography/Typography';
 import './RowSection.scss';
 
 const RowSection = ({ title, align, books, ...props }) => {

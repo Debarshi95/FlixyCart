@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import cn from 'classnames';
-import Typography from '../../common/Typography/Typography';
+import Typography from 'components/common/Typography/Typography';
 import './PriceSlider.scss';
 
 const PriceSlider = ({ min, max, className, sliderClassName, sliderProps, ...props }) => {

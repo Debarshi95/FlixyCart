@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
-import { getItem } from '../../utils/helperFuncs';
+import { getItem } from 'utils/helperFuncs';
 
 const AuthContext = createContext({ user: null, setUser: () => {} });
 

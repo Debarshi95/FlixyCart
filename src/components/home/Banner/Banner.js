@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '../../common/Button/Button';
-import CardImage from '../../common/CardImage/CardImage';
-import Typography from '../../common/Typography/Typography';
+import Button from 'components/common/Button/Button';
+import CardImage from 'components/common/CardImage/CardImage';
+import Typography from 'components/common/Typography/Typography';
 import './Banner.scss';
 
 const Banner = () => {

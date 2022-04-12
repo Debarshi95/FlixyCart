@@ -1,11 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
-import SelectInput from '../../common/SelectInput/SelectInput';
-import Typography from '../../common/Typography/Typography';
-import { useFilter } from '../../../providers/FilterProvider/FilterProvider';
-import { sortActions, ratings } from '../../../constants/actions';
-import Button from '../../common/Button/Button';
-import PriceSlider from '../PriceSlider/PriceSlider';
+import SelectInput from 'components/common/SelectInput/SelectInput';
+import Typography from 'components/common/Typography/Typography';
+import { useFilter } from 'providers/FilterProvider/FilterProvider';
+import { sortActions, ratings } from 'constants/actions';
+import Button from 'components/common/Button/Button';
+import PriceSlider from 'components/product/PriceSlider/PriceSlider';
 import './Sidebar.scss';
 
 const Sidebar = ({ xs, showMobileSidebar, ...props }) => {

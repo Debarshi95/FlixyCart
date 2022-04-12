@@ -1,11 +1,11 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
-import { Button, Input, Typography } from '../../../components';
-import { signUp } from '../../../services/flixycartApi';
-import { validateRegister } from '../../../utils/validations';
-import { useAuth } from '../../../providers/AuthProvider/AuthProvider';
-import { setItem } from '../../../utils/helperFuncs';
+import { Button, Input, Typography } from 'components';
+import { signUp } from 'services/flixycartApi';
+import { validateRegister } from 'utils/validations';
+import { useAuth } from 'providers/AuthProvider/AuthProvider';
+import { setItem } from 'utils/helperFuncs';
 import './Signup.scss';
 
 const Signup = () => {

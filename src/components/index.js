@@ -13,3 +13,4 @@ export { default as Input } from './auth/Input/Input';
 export { default as Sidebar } from './product/Sidebar/Sidebar';
 export { default as PriceSlider } from './product/PriceSlider/PriceSlider';
 export { default as SelectInput } from './common/SelectInput/SelectInput';
+export { default as ItemCounter } from './common/ItemCounter/ItemCounter';

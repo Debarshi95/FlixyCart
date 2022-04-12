@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
 import cn from 'classnames';
 import { Link } from 'react-router-dom';
-import Button from '../Button/Button';
-import CardImage from '../CardImage/CardImage';
-import Typography from '../Typography/Typography';
+import Button from 'components/common/Button/Button';
+import CardImage from 'components/common/CardImage/CardImage';
+import Typography from 'components/common/Typography/Typography';
 import './BookCard.scss';
 
 const BookCard = ({

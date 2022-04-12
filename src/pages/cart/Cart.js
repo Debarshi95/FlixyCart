@@ -1,10 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import toast from 'react-hot-toast';
-import { Typography, Button, BookCard } from '../../components';
-import ItemCounter from '../../components/common/ItemCounter/ItemCounter';
-import { calculateTotalPrice, setItem } from '../../utils/helperFuncs';
-import { getCart, removeFromCart, updateCart } from '../../services/flixycartApi';
+import { Typography, Button, BookCard, ItemCounter } from 'components';
+import { calculateTotalPrice, setItem } from 'utils/helperFuncs';
+import { getCart, removeFromCart, updateCart } from 'services/flixycartApi';
 import './Cart.scss';
 
 const Cart = () => {

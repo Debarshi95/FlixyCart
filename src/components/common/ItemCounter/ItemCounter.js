@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
 import { TiMinus, TiPlus } from 'react-icons/ti';
-import Typography from '../Typography/Typography';
+import Typography from 'components/common/Typography/Typography';
 import './ItemCounter.scss';
 
 const ItemCounter = ({ initialCount, itemId, onCartCountChange, className, ...props }) => {

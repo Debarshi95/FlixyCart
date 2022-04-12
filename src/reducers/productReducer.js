@@ -1,4 +1,4 @@
-import { productActions } from '../constants/actions';
+import { productActions } from 'constants/actions';
 
 const productReducer = (state, action) => {
   switch (action.type) {

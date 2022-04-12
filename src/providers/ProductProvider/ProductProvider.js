@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useMemo, useReducer, useContext } from 'react';
-import productReducer from '../../reducers/productReducer';
-import { productActions } from '../../constants/actions';
-import { getProducts } from '../../services/flixycartApi';
+import productReducer from 'reducers/productReducer';
+import { productActions } from 'constants/actions';
+import { getProducts } from 'services/flixycartApi';
 
 const initialState = {
   products: null,

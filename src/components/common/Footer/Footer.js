@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
-import Typography from '../Typography/Typography';
+import Typography from 'components/common/Typography/Typography';
 import './Footer.scss';
 
 const Footer = () => {
