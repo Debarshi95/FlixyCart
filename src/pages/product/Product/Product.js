@@ -43,7 +43,12 @@ const Product = () => {
         <Sidebar xs={xs} showMobileSidebar={showMobileSidebar} />
         <section className="Product__itemContainer w-full">
           {filteredProducts?.map((book) => (
-            <BookCard book={book} key={book._id} imageProps={{ width: '100%', height: '65%' }} />
+            <BookCard
+              book={book}
+              key={book._id}
+              imageProps={{ width: '100%', height: '65%' }}
+              cardHeight={xs ? '27' : '24'}
+            />
           ))}
         </section>
       </div>
