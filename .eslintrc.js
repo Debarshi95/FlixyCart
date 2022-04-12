@@ -12,6 +12,14 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: [],
+  settings: {
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+        extensions: ['.js', '.ts', '.d.ts', '.tsx'],
+      },
+    },
+  },
   rules: {
     'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
     'prettier/prettier': 'error',
