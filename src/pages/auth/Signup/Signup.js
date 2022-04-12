@@ -60,7 +60,7 @@ const Signup = () => {
             return (
               <>
                 {errors?.error && (
-                  <Typography variant="p" className="Typography--error Typography--xs text-center">
+                  <Typography variant="p" className="Typography--error text-center" size="xs">
                     {errors.error || 'This is a error'}
                   </Typography>
                 )}
