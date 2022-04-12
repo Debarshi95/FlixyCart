@@ -14,6 +14,7 @@ const BookCard = ({
   imageProps,
   contentClassName,
   cardHeight,
+  cardWidth,
   imageUrl,
   buttonProps,
   ...props
@@ -24,6 +25,7 @@ const BookCard = ({
         className={cn('BookCard__root d-flex', className, {
           [`flex-${orientation}`]: true,
           [`h-${cardHeight}`]: true,
+          [`w-${cardWidth}`]: true,
         })}
         {...props}
       >
@@ -81,5 +83,6 @@ BookCard.defaultProps = {
   contentClassName: '',
   orientation: 'col',
   cardHeight: '24',
+  cardWidth: 'auto',
 };
 export default memo(BookCard);

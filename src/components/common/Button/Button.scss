@@ -12,6 +12,7 @@
   cursor: pointer;
   min-width: 6rem;
   font-family: inherit;
+  padding: 0.4rem;
 }
 
 .Button {
@@ -26,6 +27,7 @@
       color: theme-get('text-color');
     }
     background-color: transparent;
+    padding: 0.3rem;
   }
 
   &__text--capitalize {
