@@ -1,3 +1,4 @@
+import { ErrorBoundary } from 'components';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './pages/App';
@@ -7,13 +8,15 @@ import './styles/index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <ThemeProvider>
-        <ProductProvider>
-          <App />
-        </ProductProvider>
-      </ThemeProvider>
-    </AuthProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <ThemeProvider>
+          <ProductProvider>
+            <App />
+          </ProductProvider>
+        </ThemeProvider>
+      </AuthProvider>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );
