@@ -2,7 +2,7 @@ import { ErrorBoundary } from 'components';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './pages/App';
-import { AuthProvider, ProductProvider, ThemeProvider } from './providers';
+import { AuthProvider, CartProvider, ProductProvider, ThemeProvider } from './providers';
 import reportWebVitals from './reportWebVitals';
 import './styles/index.scss';
 
@@ -12,7 +12,9 @@ ReactDOM.render(
       <AuthProvider>
         <ThemeProvider>
           <ProductProvider>
-            <App />
+            <CartProvider>
+              <App />
+            </CartProvider>
           </ProductProvider>
         </ThemeProvider>
       </AuthProvider>
