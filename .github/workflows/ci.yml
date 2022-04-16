@@ -34,6 +34,8 @@ jobs:
       - name: Build
         env:
           REACT_APP_BASE_URL: ${{secrets.REACT_APP_BASE_URL}}
+          REACT_APP_TEST_EMAIL: ${{ secrets.REACT_APP_TEST_EMAIL }}
+          REACT_APP_TEST_PASSWORD: ${{ secrets.REACT_APP_TEST_PASSWORD }}
         run: yarn build
 
       - name: Deploy to Netlify
