@@ -1,70 +1,90 @@
-# Getting Started with Create React App
+[![Actions Status](https://github.com/Debarshi95/FlixyCart/workflows/Build%20and%20Deploy/badge.svg)](https://github.com/Debarshi95/FlixyCart/actions)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# FlixyCart
 
-## Available Scripts
+A ReactJS ecommerce web app for books.
 
-In the project directory, you can run:
+## Demo
 
-### `yarn start`
+### Frontend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[Deployed on Netlify using github actions](https://debarshib-flixycart.netlify.app)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
 
-### `yarn test`
+Deployed on heroku
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features:
 
-### `yarn build`
+- Products listing of latest books
+- Authentication facility for old & new users
+- Wishlist and Cart functionality
+- Authenticated users can add, update, remove, edit books in cart
+- Authenticated users can add, update, remove, edit books in wishlist
+- Filtering of items base on
+  - Price
+  - Category
+  - Ratings
+  - Price Slider
+- LazyLoading/Code-splitting of components to dynamically load at runtime
+- Error management using ErrorBoundary to catch and show fallback UI.
+- LazyLoading/Code-splitting of components.
+- Day/Night theme toggle
+- Uses mongodb, JWT for data persistence and authetication
+- Responsive UI for all screens (Desktop, Tablet, Mobile)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Built using:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ReactJS](https://reactjs.org/) - Frontend framework
+- [React Router](https://reactrouter.com/) - For routing & navigation
+- [React-Hot-Toast](https://react-hot-toast.com) - to show Toast Notifications
+- [Formik](https://formik.org/) - For form handling
+- [Axios](https://www.npmjs.com/package/axios) - Network request
+- [SAS](https://sass-lang.com/) - UI styling
+- [Yup](https://www.npmjs.com/package/yup)- Form validation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
 
-### `yarn eject`
+#### Desktop
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Desktop-1](screenshots/desktop1.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Desktop-2](screenshots/desktop2.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![Genre](screenshots/desktop3.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+![Info](screenshots/desktop.png)
 
-## Learn More
+<br/>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Mobile
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br/>
+<div align="center">
 
-### Code Splitting
+![Mobile-1](screenshots/mobile1.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Mobile-2](screenshots/mobile2.png)
 
-### Analyzing the Bundle Size
+![Mobile-3](screenshots/mobile3.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Mobile-4](screenshots/mobile4.png)
 
-### Making a Progressive Web App
+</div>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Run Locally
 
-### Advanced Configuration
+- Clone the project
+  `git clone https://github.com/Debarshi95/FlixyCart.git`
+- Go to the project directory
+- cd flixycart
+- Install dependencies
+  `yarn`
+- Create a **.env** file
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+REACT_APP_BASE_URL="Backend base url"
+```
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Start the server
+  `yarn start`
