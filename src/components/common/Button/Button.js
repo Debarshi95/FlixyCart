@@ -8,7 +8,7 @@ const buttonComponents = {
   button: 'button',
   div: 'div',
 };
-const Button = ({ component, text, variant, className, children, ...props }) => {
+const Button = ({ component, text, variant, className, children, boldText, ...props }) => {
   const Component = buttonComponents[component];
 
   return (
@@ -16,6 +16,7 @@ const Button = ({ component, text, variant, className, children, ...props }) => 
       className={cn('Button__root', className, {
         [`Button--${variant}`]: true,
         'Button--disabled': props.disabled,
+        'text-bold': boldText,
       })}
       {...props}
     >
@@ -31,5 +32,6 @@ Button.defaultProps = {
   component: 'button',
   text: '',
   disabled: false,
+  boldText: 'false',
 };
 export default Button;

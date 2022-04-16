@@ -17,13 +17,23 @@
 }
 
 .Navbar {
+  &__IconContainer {
+    display: flex;
+    justify-content: space-around;
+    max-width: 15rem;
+    width: 100%;
+    align-items: center;
+  }
   &__IconButton {
     @include theme() {
       color: $color-primary-200;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       cursor: pointer;
-      background: none;
       border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
     }
   }
 }

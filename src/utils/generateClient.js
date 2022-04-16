@@ -23,6 +23,9 @@ const generateApiClient = (baseURL = '') => {
   );
   config.interceptors.response.use(
     (res) => {
+      if (res.status === 200) {
+        return res?.data;
+      }
       return res;
     },
     (err) => {

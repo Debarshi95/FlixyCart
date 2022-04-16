@@ -14,9 +14,7 @@ const Cart = () => {
     const getCartDetails = async () => {
       try {
         const res = await getCart();
-        if (res.status === 200) {
-          setCart(res.data.result);
-        }
+        setCart(res.result);
       } catch (error) {
         toast.error('Oops!!Some error occurred');
       }
@@ -26,17 +24,13 @@ const Cart = () => {
 
   const onCartCountChange = useCallback(async ({ type, id, quantity }) => {
     const res = await updateCart({ type, id, quantity });
-    if (res.status === 200) {
-      setCart(res.data.result);
-    }
+    setCart(res.result);
   }, []);
 
   const handleRemoveFromCart = async (e, id) => {
     e.preventDefault();
     const res = await removeFromCart(id);
-    if (res.status === 200) {
-      setCart(res.data.result);
-    }
+    setCart(res.result);
     e.stopPropagation();
   };
 

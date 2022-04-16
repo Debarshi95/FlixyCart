@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { Button, Input, Typography } from 'components';
 import { signUp } from 'services/flixycartApi';
@@ -9,17 +9,17 @@ import { setItem } from 'utils/helperFuncs';
 import './Signup.scss';
 
 const Signup = () => {
-  const { setUser } = useAuth();
+  const { user, setUser } = useAuth();
   const navigate = useNavigate();
 
   const handleSubmit = async (values, { resetForm }) => {
     const { username, email, password, confirmPassword } = values;
     try {
-      const res = await signUp({ username, email, password, confirmPassword });
+      const resUser = await signUp({ username, email, password, confirmPassword });
 
-      if (res.status === 200) {
-        setUser(res.data);
-        setItem('user', res.data);
+      if (resUser?.id) {
+        setUser({ ...resUser });
+        setItem('user', { ...resUser });
         navigate('/', { replace: true });
       }
     } catch (err) {
@@ -37,7 +37,9 @@ const Signup = () => {
       });
     }
   };
-
+  if (user?.id) {
+    return <Navigate to="/" replace />;
+  }
   return (
     <div className="Signup__root">
       <div className="Signup__formContainer d-flex flex-col">
@@ -58,7 +60,7 @@ const Signup = () => {
             return (
               <>
                 {errors?.error && (
-                  <Typography variant="p" className="Typography--error Typography--xs text-center">
+                  <Typography variant="p" className="Typography--error text-center" size="xs">
                     {errors.error || 'This is a error'}
                   </Typography>
                 )}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { BsFillMoonFill, BsSunFill, BsFillCartFill } from 'react-icons/bs';
-import { FaSignOutAlt } from 'react-icons/fa';
+import { FaSignOutAlt, FaHeart } from 'react-icons/fa';
 import { useTheme } from 'providers/ThemeProvider/ThemeProvider';
 import { useAuth } from 'providers/AuthProvider/AuthProvider';
 import { clearItem } from 'utils/helperFuncs';
@@ -22,9 +22,12 @@ const Navbar = () => {
         <NavLink to="/" className="text-12">
           FlixyCart
         </NavLink>
-        <div className="d-flex w-10 content-between items-center">
+        <div className="Navbar__IconContainer d-flex w-10 content-between items-center">
           {user?.id ? (
             <>
+              <NavLink to="/wishlist" className="Navbar__IconButton">
+                <FaHeart />
+              </NavLink>
               <NavLink to="/cart" className="Navbar__IconButton">
                 <BsFillCartFill />
               </NavLink>

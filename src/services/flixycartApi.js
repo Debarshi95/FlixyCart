@@ -9,5 +9,15 @@ const signout = () => flixyCartApi.post('/logout');
 const getCart = () => flixyCartApi.get(`/cart`);
 const updateCart = (data, type = '') => flixyCartApi.post(`/cart`, { type, ...data });
 const removeFromCart = (id) => flixyCartApi.delete(`/cart`, { data: { id } });
+const getProductById = (id) => flixyCartApi.get(`/books/${id}`);
 
-export { getProducts, signIn, signUp, signout, getCart, updateCart, removeFromCart };
+export {
+  getProducts,
+  signIn,
+  signUp,
+  signout,
+  getCart,
+  updateCart,
+  removeFromCart,
+  getProductById,
+};

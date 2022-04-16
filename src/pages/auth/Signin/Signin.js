@@ -16,10 +16,10 @@ const Signin = () => {
     const { email, password } = values;
 
     try {
-      const res = await signIn({ email, password });
-      if (res.status === 200) {
-        setUser(res.data);
-        setItem('user', res.data);
+      const resUser = await signIn({ email, password });
+      if (resUser?.id) {
+        setUser({ ...resUser });
+        setItem('user', { ...resUser });
         navigate('/', { replace: true });
       }
     } catch (err) {
@@ -44,7 +44,7 @@ const Signin = () => {
   return (
     <div className="Signin__root">
       <div className="Signin__formContainer d-flex flex-col">
-        <Typography variant="h5" className="Typography--primary my-2 text-center">
+        <Typography variant="h5" className="Typography--primary mt-2 mb-1 text-center">
           Signin to continue
         </Typography>
         <Formik
@@ -59,7 +59,7 @@ const Signin = () => {
             return (
               <>
                 {errors?.error && (
-                  <Typography variant="p" className="Typography--error Typography--xs text-center">
+                  <Typography variant="p" className="Typography--error  text-center" size="xs">
                     {errors.error || 'This is a error'}
                   </Typography>
                 )}

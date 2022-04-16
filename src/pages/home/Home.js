@@ -11,9 +11,7 @@ const Home = () => {
     const fetchProducts = async () => {
       try {
         const res = await getProducts();
-        if (res.status === 200) {
-          setProducts(res.data.result);
-        }
+        setProducts(res.result);
       } catch (error) {
         toast.error('Some error occurred!');
       }

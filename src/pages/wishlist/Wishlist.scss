@@ -1,0 +1,24 @@
+@import '../../styles/functions';
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.Wishlist__root {
+  min-height: calc(100vh - 4.4rem);
+  @include theme() {
+    background-color: theme-get('background-color');
+  }
+}
+
+.Wishlist {
+  &__Container {
+    max-width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include sm() {
+      display: block;
+      max-width: 100%;
+    }
+  }
+}
