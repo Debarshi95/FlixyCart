@@ -14,3 +14,5 @@ export { default as Sidebar } from './product/Sidebar/Sidebar';
 export { default as PriceSlider } from './product/PriceSlider/PriceSlider';
 export { default as SelectInput } from './common/SelectInput/SelectInput';
 export { default as ItemCounter } from './common/ItemCounter/ItemCounter';
+export { default as ErrorBoundary } from './common/ErrorBoundary/ErrorBoundary';
+export { default as NotFound } from './common/NotFound/NotFound';
