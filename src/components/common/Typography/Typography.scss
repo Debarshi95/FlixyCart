@@ -3,6 +3,8 @@
 @import '../../../styles/variables';
 
 .Typography__root {
+  white-space: normal;
+  word-break: break-all;
   @include theme() {
     color: theme-get('text-color');
   }
