@@ -12,7 +12,7 @@ A ReactJS ecommerce web app for books.
 
 ### Backend
 
-Deployed on heroku
+[Deployed on heroku](https://github.com/Debarshi95/FlixyCartBackend)
 
 ## Features:
 
