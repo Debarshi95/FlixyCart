@@ -21,3 +21,7 @@ export const calculateTotalPrice = (items = []) => {
     return acc;
   }, 0);
 };
+
+export const getItemInCart = (id, products = []) => {
+  return products?.find((product) => product.bookId._id === id);
+};

@@ -1,19 +1,24 @@
+import { ErrorBoundary } from 'components';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './pages/App';
-import { AuthProvider, ProductProvider, ThemeProvider } from './providers';
+import { AuthProvider, CartProvider, ProductProvider, ThemeProvider } from './providers';
 import reportWebVitals from './reportWebVitals';
 import './styles/index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
-      <ThemeProvider>
-        <ProductProvider>
-          <App />
-        </ProductProvider>
-      </ThemeProvider>
-    </AuthProvider>
+    <ErrorBoundary>
+      <AuthProvider>
+        <ThemeProvider>
+          <ProductProvider>
+            <CartProvider>
+              <App />
+            </CartProvider>
+          </ProductProvider>
+        </ThemeProvider>
+      </AuthProvider>
+    </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
 );

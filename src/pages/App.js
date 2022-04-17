@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import { Navbar, Loader, PrivateRoute } from 'components';
+import { Navbar, Loader, PrivateRoute, NotFound } from 'components';
 import { FilterProvider } from 'providers';
 
 const LazyHome = React.lazy(() => import('./home/Home'));
@@ -71,6 +71,7 @@ const App = () => {
             </Suspense>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />
     </Router>

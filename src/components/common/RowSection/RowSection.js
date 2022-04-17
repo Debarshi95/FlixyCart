@@ -1,15 +1,22 @@
 import React from 'react';
 import toast from 'react-hot-toast';
-import { updateCart } from 'services/flixycartApi';
 import BookCard from 'components/common/BookCard/BookCard';
 import Typography from 'components/common/Typography/Typography';
+import { useCart } from 'providers';
 import './RowSection.scss';
 
 const RowSection = ({ title, align, books, ...props }) => {
-  const handleButtonClick = async (id) => {
+  const { handleUpdateCart, handleRemoveFromCart } = useCart();
+
+  const handleButtonClick = async (isAdded, id) => {
     try {
-      await updateCart({ id, quantity: 1 });
-      toast.success('Added to Cart!!');
+      if (isAdded) {
+        await handleRemoveFromCart(id);
+        toast.success('Removed from Cart!!');
+      } else {
+        await handleUpdateCart({ id, quantity: 1 });
+        toast.success('Added to Cart!!');
+      }
     } catch (error) {
       toast.error("Oops!! Couldn't add to cart!!");
     }
@@ -28,10 +35,7 @@ const RowSection = ({ title, align, books, ...props }) => {
             cardHeight="auto"
             imageProps={{ width: '100%', height: '18rem' }}
             buttonProps={{
-              onClick: (e) => {
-                e.preventDefault();
-                handleButtonClick(book._id);
-              },
+              onClick: handleButtonClick,
             }}
           />
         ))}

@@ -3,12 +3,16 @@
 @import '../../../styles/mixins';
 
 .Signin__root {
-  min-height: calc(100vh - 4rem);
+  min-height: calc(100vh - 4.4rem);
   display: flex;
   align-items: center;
   justify-content: center;
   @include theme() {
     background-color: theme-get('background-color');
+  }
+  @include sm() {
+    box-shadow: none;
+    align-items: flex-start;
   }
 }
 .Signin {
@@ -24,12 +28,13 @@
     }
     @include sm() {
       box-shadow: none;
+      height: calc(100vh - 6rem);
     }
   }
 
   &__button {
-    padding: 0.4rem 0.9rem;
-    font-size: 1rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
     margin: 14px 0;
     @include sm() {
       font-size: 0.9rem;

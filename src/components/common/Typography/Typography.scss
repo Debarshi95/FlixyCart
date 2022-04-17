@@ -42,18 +42,69 @@
   }
   &--sm {
     font-size: 1.1rem;
+    @include sm() {
+      font-size: 1rem;
+    }
   }
   &--ssm {
     font-size: 1.25rem;
+    @include sm() {
+      font-size: 1.15rem;
+    }
   }
 
   &--md {
     font-size: 1.5rem;
+
+    @include sm() {
+      font-size: 1.35rem;
+    }
   }
   &--primary {
     color: $color-primary !important;
   }
 
+  &--mmd {
+    font-size: 1.75rem;
+    @include sm() {
+      font-size: 1.4rem;
+    }
+  }
+  &--xl {
+    font-size: 2rem;
+    @include sm() {
+      font-size: 1.65rem;
+    }
+  }
+
+  &--xxl {
+    font-size: 2.25rem;
+    @include sm() {
+      font-size: 1.9rem;
+    }
+  }
+  &--xxxl {
+    font-size: 2.55rem;
+    @include sm() {
+      font-size: 2rem;
+    }
+  }
+  &--xxlg {
+    font-size: 2.85rem;
+    @include sm() {
+      font-size: 2.3rem;
+    }
+  }
+
+  &--end {
+    text-align: end;
+  }
+  &--center {
+    text-align: center;
+  }
+  &--start {
+    text-align: start;
+  }
   &--ellipsis {
     overflow: hidden;
     text-overflow: ellipsis;

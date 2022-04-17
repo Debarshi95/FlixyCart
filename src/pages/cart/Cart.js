@@ -1,36 +1,22 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React from 'react';
 import toast from 'react-hot-toast';
 import { useMediaQuery } from 'react-responsive';
 import { Typography, Button, BookCard, ItemCounter } from 'components';
 import { calculateTotalPrice, getItem, setItem } from 'utils/helperFuncs';
-import { getCart, removeFromCart, updateCart } from 'services/flixycartApi';
+import { useCart } from 'providers';
 import './Cart.scss';
 
 const Cart = () => {
-  const [cart, setCart] = useState([]);
+  const { cart, handleUpdateCart, handleRemoveFromCart: removeFromCart } = useCart();
   const sm = useMediaQuery({ maxWidth: '600px' });
 
-  useEffect(() => {
-    const getCartDetails = async () => {
-      try {
-        const res = await getCart();
-        setCart(res.result);
-      } catch (error) {
-        toast.error('Oops!!Some error occurred');
-      }
-    };
-    getCartDetails();
-  }, []);
-
-  const onCartCountChange = useCallback(async ({ type, id, quantity }) => {
-    const res = await updateCart({ type, id, quantity });
-    setCart(res.result);
-  }, []);
+  const onCartCountChange = async ({ type, id, quantity }) => {
+    await handleUpdateCart({ type, id, quantity });
+  };
 
   const handleRemoveFromCart = async (e, id) => {
     e.preventDefault();
-    const res = await removeFromCart(id);
-    setCart(res.result);
+    await removeFromCart(id);
     e.stopPropagation();
   };
 

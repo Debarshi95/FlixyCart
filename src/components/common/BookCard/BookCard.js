@@ -1,9 +1,11 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import cn from 'classnames';
 import Button from 'components/common/Button/Button';
 import CardImage from 'components/common/CardImage/CardImage';
 import Typography from 'components/common/Typography/Typography';
+import { getItemInCart } from 'utils/helperFuncs';
 import './BookCard.scss';
+import { useCart } from 'providers';
 
 const BookCard = ({
   children,
@@ -18,6 +20,25 @@ const BookCard = ({
   buttonProps,
   ...props
 }) => {
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const { cart } = useCart();
+
+  useEffect(() => {
+    const itemAdded = getItemInCart(book._id, cart.products);
+
+    if (itemAdded) {
+      setIsAddedToCart(true);
+    } else {
+      setIsAddedToCart(false);
+    }
+  }, [book._id, cart.products]);
+
+  const handleCardClick = () => {
+    if (buttonProps.onClick) {
+      buttonProps.onClick(isAddedToCart, book._id);
+    }
+  };
+
   return (
     <div
       className={cn('BookCard__root d-flex', className, {
@@ -62,8 +83,9 @@ const BookCard = ({
               component="button"
               className="BookCard__button  text-bold w-full"
               {...buttonProps}
+              onClick={handleCardClick}
             >
-              Add To Cart
+              {isAddedToCart ? 'Remove from cart' : 'Add to cart'}
             </Button>
           </>
         )}

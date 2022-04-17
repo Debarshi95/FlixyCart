@@ -3,6 +3,8 @@ import { useMediaQuery } from 'react-responsive';
 import { useProducts } from 'providers/ProductProvider/ProductProvider';
 import { useFilter } from 'providers/FilterProvider/FilterProvider';
 import { BookCard, Button, Sidebar } from 'components';
+import { useCart } from 'providers';
+import toast from 'react-hot-toast';
 import './Product.scss';
 
 const Product = () => {
@@ -12,6 +14,21 @@ const Product = () => {
   const {
     productState: { products = [] },
   } = useProducts();
+  const { handleUpdateCart, handleRemoveFromCart } = useCart();
+
+  const handleButtonClick = async (isAdded, id) => {
+    try {
+      if (isAdded) {
+        await handleRemoveFromCart(id);
+        toast.success('Removed from Cart!!');
+      } else {
+        await handleUpdateCart({ id, quantity: 1 });
+        toast.success('Added to Cart!!');
+      }
+    } catch (error) {
+      toast.error("Oops!! Couldn't add to cart!!");
+    }
+  };
 
   const { filteredState, getSortedProducts, getFilteredProducts } = useFilter();
 
@@ -48,6 +65,9 @@ const Product = () => {
               key={book._id}
               imageProps={{ width: '100%', height: '65%' }}
               cardHeight={xs ? '27' : '24'}
+              buttonProps={{
+                onClick: handleButtonClick,
+              }}
             />
           ))}
         </section>
