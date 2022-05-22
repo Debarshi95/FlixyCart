@@ -1,5 +1,3 @@
-/* eslint-disable no-unsafe-optional-chaining */
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import cn from 'classnames';
@@ -102,6 +100,7 @@ const Checkout = () => {
                 <div
                   className={cn('Checkout__addressCard', {
                     'addressCard-selected': selectedAddress === address._id,
+                    // eslint-disable-next-line no-unsafe-optional-chaining
                     'mb-2': idx === userAddress?.length - 1,
                   })}
                   key={address._id}
@@ -130,6 +129,7 @@ const Checkout = () => {
           buttonText="Place Order"
           onClick={handlePlaceOrder}
           headerTitle="Order summary"
+          showDiscountToast={false}
         />
       </div>
     </div>

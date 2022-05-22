@@ -20,9 +20,12 @@
   &__IconContainer {
     display: flex;
     justify-content: space-around;
-    max-width: 15rem;
     width: 100%;
     align-items: center;
+    max-width: 16rem;
+    @include sm() {
+      max-width: 11rem;
+    }
   }
   &__IconButton {
     @include theme() {

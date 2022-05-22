@@ -1,23 +1,25 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import cn from 'classnames';
 import toast from 'react-hot-toast';
 import { Typography, Button } from 'components';
 import { calculateTotalPrice } from 'utils/helperFuncs';
 import './PriceCard.scss';
 
-const PriceCard = ({ cart, className, headerTitle, buttonText, onClick }) => {
+const PriceCard = ({ cart, className, headerTitle, buttonText, showDiscountToast, onClick }) => {
   const total = Math.floor(calculateTotalPrice(cart.products));
 
-  const calculateFinalPrice = () => {
+  const calculateFinalPrice = useCallback(() => {
     let totalPrice = total;
     if (total > 2400) {
       totalPrice = total - 999;
-      toast.success('Discount of Rs.999 applied', {
-        id: 'wqwq',
-      });
+      if (showDiscountToast) {
+        toast.success('Discount of Rs.999 applied', {
+          id: 'wqwq',
+        });
+      }
     }
     return totalPrice;
-  };
+  }, [showDiscountToast, total]);
 
   return (
     <div className={cn('PriceCard__root', className)}>
@@ -44,16 +46,14 @@ const PriceCard = ({ cart, className, headerTitle, buttonText, onClick }) => {
       <hr />
       {cart?.products && (
         <Typography variant="p" size="xs">
-          {' '}
           Total amount - {calculateFinalPrice()}
         </Typography>
       )}
       <hr />
       <Typography variant="p" size="xs" className="my-1" textbold>
-        {' '}
         {total >= 2400
           ? "You'll save Rs.999 on this order"
-          : 'Make cart price above 2400 to be eligible for discount'}
+          : 'Flat 999/- discount above cart value of 2400/-'}
       </Typography>
       <Button
         component="button"
@@ -68,5 +68,6 @@ const PriceCard = ({ cart, className, headerTitle, buttonText, onClick }) => {
 };
 PriceCard.defaultProps = {
   onClick: () => null,
+  showDiscountToast: true,
 };
 export default memo(PriceCard);

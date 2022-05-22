@@ -1,3 +1,6 @@
+@import './functions';
+@import './mixins';
+
 body {
   margin: 0;
   padding: 0;
@@ -8,4 +11,19 @@ body {
 }
 .grow-1 {
   flex-grow: 1;
+}
+
+.app__root {
+  min-height: 100vh;
+  @include theme() {
+    background-color: theme-get('background-color');
+  }
+}
+
+.max-w-24 {
+  max-width: 24rem;
+}
+
+.flex-1 {
+  flex: 1;
 }

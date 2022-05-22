@@ -25,6 +25,7 @@ const ProductProvider = ({ children }) => {
   const handleUpdateCart = useCallback(async ({ type, id, quantity }) => {
     try {
       const res = await updateCart({ type, id, quantity });
+      console.log({ res });
       setCart(res.result);
     } catch (error) {
       toast.error('Oops!!Couldn\t update cart');

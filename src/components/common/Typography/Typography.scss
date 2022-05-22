@@ -108,5 +108,7 @@
   &--ellipsis {
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: wrap;
+    width: 15rem;
   }
 }
