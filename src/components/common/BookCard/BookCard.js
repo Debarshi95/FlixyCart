@@ -79,7 +79,7 @@ const BookCard = ({
             </div>
 
             <Button
-              variant="contained"
+              variant="outlined"
               component="button"
               className="BookCard__button  text-bold w-full"
               {...buttonProps}

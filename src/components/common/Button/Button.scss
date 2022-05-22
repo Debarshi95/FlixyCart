@@ -13,6 +13,7 @@
   min-width: 6rem;
   font-family: inherit;
   padding: 0.4rem;
+  background-color: var(--color-dark);
 }
 
 .Button {
@@ -22,12 +23,12 @@
   }
 
   &--outlined {
-    border: 1.8px solid $color-primary-200;
+    border: 1.5px solid $color-primary-200;
     @include theme() {
-      color: theme-get('text-color');
+      color: $color-primary-200;
     }
     background-color: transparent;
-    padding: 0.3rem;
+    padding: 0;
   }
 
   &__text--capitalize {
