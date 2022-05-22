@@ -17,5 +17,5 @@ export { default as ItemCounter } from './common/ItemCounter/ItemCounter';
 export { default as ErrorBoundary } from './common/ErrorBoundary/ErrorBoundary';
 export { default as NotFound } from './common/NotFound/NotFound';
 export { default as PriceCard } from './common/PriceCard/PriceCard';
-export { default as AddressModal } from './common/AddressModal/AddressModal';
+// export { default as AddressModal } from './common/AddressModal/AddressModal';
 export { default as Accordion } from './common/Accordion/Accordion';
