@@ -19,7 +19,7 @@ const Home = () => {
     fetchProducts();
   }, []);
   return (
-    <div className="Home__root w-full min-h-screen d-flex flex-col">
+    <div className="w-full min-h-screen d-flex flex-col">
       <Banner />
       <section className="Home__section">
         <RowSection title="Trending" align="center" books={products?.slice(0, 4)} id="trending" />

@@ -7,7 +7,7 @@ const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
 
-const ProductProvider = ({ children }) => {
+const ProductProvider = ({ children, user }) => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -19,13 +19,15 @@ const ProductProvider = ({ children }) => {
         toast.error('Oops!!Some error occurred');
       }
     };
-    getCartDetails();
-  }, []);
+    if (user) {
+      getCartDetails();
+    }
+  }, [user]);
 
   const handleUpdateCart = useCallback(async ({ type, id, quantity }) => {
     try {
       const res = await updateCart({ type, id, quantity });
-      console.log({ res });
+
       setCart(res.result);
     } catch (error) {
       toast.error('Oops!!Couldn\t update cart');
