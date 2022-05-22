@@ -3,13 +3,10 @@
 @import '../../../styles/mixins';
 
 .Signin__root {
-  min-height: calc(100vh - 4.4rem);
   display: flex;
   align-items: center;
   justify-content: center;
-  @include theme() {
-    background-color: theme-get('background-color');
-  }
+  height: calc(100vh - 4rem);
   @include sm() {
     box-shadow: none;
     align-items: flex-start;

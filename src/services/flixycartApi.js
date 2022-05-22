@@ -10,6 +10,9 @@ const getCart = () => flixyCartApi.get(`/cart`);
 const updateCart = (data, type = '') => flixyCartApi.post(`/cart`, { type, ...data });
 const removeFromCart = (id) => flixyCartApi.delete(`/cart`, { data: { id } });
 const getProductById = (id) => flixyCartApi.get(`/books/${id}`);
+const placeOrder = (addressId, cartId) => flixyCartApi.post(`/user/order`, { addressId, cartId });
+const getUserAddress = () => flixyCartApi.get(`/user/address`);
+const createUserAddress = (data) => flixyCartApi.post(`/user/address`, { ...data });
 
 export {
   getProducts,
@@ -20,4 +23,7 @@ export {
   updateCart,
   removeFromCart,
   getProductById,
+  placeOrder,
+  getUserAddress,
+  createUserAddress,
 };

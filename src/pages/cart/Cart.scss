@@ -2,14 +2,6 @@
 @import '../../styles/mixins';
 @import '../../styles/variables';
 
-.Cart__root {
-  min-height: calc(100vh - 4.4rem);
-  padding: 1rem;
-
-  @include theme() {
-    background-color: theme-get('background-color');
-  }
-}
 .Cart {
   &__wrapper {
     max-width: 80%;
@@ -25,14 +17,17 @@
     }
   }
   &__priceCard {
-    padding: 1rem 1.75rem;
     max-width: 24rem;
     height: fit-content;
     border-radius: 4px;
     grid-area: PriceCard;
     @include theme() {
-      background-color: theme-get('background-color');
+      background-color: theme-get('card-bg');
       color: theme-get('text-color');
+    }
+    @include sm() {
+      max-width: 100%;
+      width: 100%;
     }
   }
 

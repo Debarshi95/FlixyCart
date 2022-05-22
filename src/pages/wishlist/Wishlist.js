@@ -1,14 +1,16 @@
 import { BookCard, Button, Typography } from 'components';
+import { useCart } from 'providers';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { useMediaQuery } from 'react-responsive';
-import { updateCart } from 'services/flixycartApi';
 import { clearItem, getItem, setItem } from 'utils/helperFuncs';
 import './Wishlist.scss';
 
 const Wishlist = () => {
   const [wishlist, setWishlist] = useState(getItem('wishlist'));
   const sm = useMediaQuery({ maxWidth: '600px' });
+
+  const { handleUpdateCart: updateCart } = useCart();
 
   const handleRemoveFromWishlist = (e, id) => {
     e.preventDefault();
@@ -90,7 +92,7 @@ const Wishlist = () => {
         ))}
       </div>
 
-      {!wishlist.length && (
+      {!wishlist?.length && (
         <Typography variant="h5" className="Typography--500 my-4" align="center">
           Wishlist is empty!!
         </Typography>

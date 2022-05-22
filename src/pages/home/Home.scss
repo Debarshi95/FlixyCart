@@ -1,11 +1,6 @@
 @import '../../styles/functions';
 @import '../../styles/mixins';
 
-.Home__root {
-  @include theme() {
-    background-color: theme-get('background-color');
-  }
-}
 .Home__section {
   max-width: 85%;
   width: 100%;

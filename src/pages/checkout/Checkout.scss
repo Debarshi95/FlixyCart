@@ -1,0 +1,88 @@
+@import '../../styles/functions';
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.Checkout {
+  &__root {
+    min-height: calc(100vh - 4.4rem);
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  &__mainWrapper {
+    display: flex;
+    @include md() {
+      display: block;
+    }
+  }
+
+  &__accordion {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 100%;
+    position: relative;
+    flex: 1;
+    & > section {
+      margin-right: 1.5rem;
+      flex: 1;
+      @include md() {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__orderCard {
+    max-width: 24rem;
+    height: fit-content;
+    border-radius: 4px;
+    @include theme() {
+      background-color: theme-get('card-bg');
+      color: theme-get('text-color');
+    }
+    @include md() {
+      max-width: 100%;
+      width: 100%;
+      margin: 1rem 0;
+    }
+  }
+
+  &__toggleHeader {
+    min-height: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    padding: 1rem;
+    @include theme() {
+      background-color: theme-get('common-bg');
+      color: theme-get('text-color');
+    }
+  }
+
+  &__addressCard {
+    max-width: 100%;
+    width: 100%;
+    padding: 1rem;
+    @include theme() {
+      background-color: theme-get('card-bg');
+      color: theme-get('text-color');
+    }
+  }
+}
+
+.addressCard-selected {
+  background-color: $color-primary-disabled !important;
+}
+.open-out {
+  display: block;
+  transform: translateY(0%);
+  transition: transform 0.3s;
+}
+
+.open-in {
+  visibility: hidden;
+  transform: translateY(-0%);
+  transition: transform 0.3s;
+  display: none;
+}

@@ -1,14 +1,17 @@
 import React from 'react';
 import toast from 'react-hot-toast';
 import { useMediaQuery } from 'react-responsive';
-import { Typography, Button, BookCard, ItemCounter } from 'components';
-import { calculateTotalPrice, getItem, setItem } from 'utils/helperFuncs';
+import { useNavigate } from 'react-router-dom';
+import { Typography, Button, BookCard, ItemCounter, PriceCard } from 'components';
+import { getItem, setItem } from 'utils/helperFuncs';
 import { useCart } from 'providers';
 import './Cart.scss';
 
 const Cart = () => {
   const { cart, handleUpdateCart, handleRemoveFromCart: removeFromCart } = useCart();
   const sm = useMediaQuery({ maxWidth: '600px' });
+
+  const navigate = useNavigate();
 
   const onCartCountChange = async ({ type, id, quantity }) => {
     await handleUpdateCart({ type, id, quantity });
@@ -24,7 +27,9 @@ const Cart = () => {
     e.preventDefault();
     let wishlistData = [];
     const prevData = getItem('wishlist');
-    if (prevData) {
+
+    const itemExists = prevData?.find((prevItem) => prevItem._id === item._id);
+    if (!itemExists && prevData) {
       wishlistData = [...prevData, item];
     } else {
       wishlistData.push(item);
@@ -34,49 +39,8 @@ const Cart = () => {
     toast.success('Moved to Wishlist!!');
   };
 
-  const priceCard = (
-    <>
-      <Typography variant="h6" textbold size="ssm">
-        Price Details
-      </Typography>
-      <hr />
-
-      {cart?.products && (
-        <Typography variant="div">
-          <Typography variant="p" size="xs">
-            Price({cart.products.length} Items) -{' '}
-            <span>Rs. {calculateTotalPrice(cart.products)}</span>
-          </Typography>
-        </Typography>
-      )}
-      <Typography variant="p" size="xs">
-        {' '}
-        Discount - 999
-      </Typography>
-      <Typography variant="p" size="xs">
-        {' '}
-        Delivery Charges - Free
-      </Typography>
-      <hr />
-      {cart?.products && (
-        <Typography variant="p" textbold size="xs">
-          {' '}
-          Total amount - {Math.floor(calculateTotalPrice(cart.products) - 999)}
-        </Typography>
-      )}
-      <hr />
-      <Typography variant="p" size="sm" className="my-1" textbold>
-        {' '}
-        You will save 999 in this order
-      </Typography>
-      <Button component="button" className="Cart__button w-full text-bold">
-        Place Order
-      </Button>
-    </>
-  );
-
   return (
-    <div className="Cart__root">
+    <div>
       <Typography variant="h6" className="text-center mb-1">
         My Cart
       </Typography>
@@ -96,6 +60,9 @@ const Cart = () => {
                 <div className="d-flex flex-col content-between h-full">
                   <Typography variant="h5" size="sm">
                     {product.bookId.title}
+                  </Typography>
+                  <Typography variant="p" size="sm" className="Typography--ellipsis">
+                    {product.bookId.description}
                   </Typography>
                   <Typography variant="div" className="d-flex items-center">
                     <Typography variant="p" className="mr-1 text-10" textbold size="xs">
@@ -132,7 +99,14 @@ const Cart = () => {
               </BookCard>
             ))}
           </div>
-          <div className="Cart__priceCard">{priceCard}</div>
+          <div className="Cart__priceCard">
+            <PriceCard
+              cart={cart}
+              headerTitle="Price Details"
+              onClick={() => navigate('/checkout')}
+              buttonText="Checkout"
+            />
+          </div>
         </div>
       ) : (
         <Typography variant="h5" className="Typography--500 my-4" align="center">

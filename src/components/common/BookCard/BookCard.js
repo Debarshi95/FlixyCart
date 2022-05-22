@@ -5,7 +5,8 @@ import CardImage from 'components/common/CardImage/CardImage';
 import Typography from 'components/common/Typography/Typography';
 import { getItemInCart } from 'utils/helperFuncs';
 import './BookCard.scss';
-import { useCart } from 'providers';
+import { useAuth, useCart } from 'providers';
+import toast from 'react-hot-toast';
 
 const BookCard = ({
   children,
@@ -22,21 +23,28 @@ const BookCard = ({
 }) => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
   const { cart } = useCart();
+  const { user } = useAuth();
 
   useEffect(() => {
-    const itemAdded = getItemInCart(book._id, cart.products);
-
+    let itemAdded;
+    if (user) {
+      itemAdded = getItemInCart(book._id, cart.products);
+    }
     if (itemAdded) {
       setIsAddedToCart(true);
     } else {
       setIsAddedToCart(false);
     }
-  }, [book._id, cart.products]);
+  }, [book._id, cart.products, user]);
 
   const handleCardClick = () => {
+    if (!user) {
+      return toast.error('Please login to continue');
+    }
     if (buttonProps.onClick) {
       buttonProps.onClick(isAddedToCart, book._id);
     }
+    return null;
   };
 
   return (
@@ -79,7 +87,7 @@ const BookCard = ({
             </div>
 
             <Button
-              variant="contained"
+              variant="outlined"
               component="button"
               className="BookCard__button  text-bold w-full"
               {...buttonProps}

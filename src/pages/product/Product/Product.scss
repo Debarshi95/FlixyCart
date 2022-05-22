@@ -4,9 +4,6 @@
 
 .Product__root {
   min-height: calc(100vh - 11.2rem);
-  @include theme() {
-    background-color: theme-get('background-color');
-  }
 }
 
 .Product {

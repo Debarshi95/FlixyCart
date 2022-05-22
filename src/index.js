@@ -9,15 +9,17 @@ import './styles/index.scss';
 ReactDOM.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <AuthProvider>
-        <ThemeProvider>
-          <ProductProvider>
-            <CartProvider>
-              <App />
-            </CartProvider>
-          </ProductProvider>
-        </ThemeProvider>
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          {(user) => (
+            <ProductProvider>
+              <CartProvider user={user}>
+                <App />
+              </CartProvider>
+            </ProductProvider>
+          )}
+        </AuthProvider>
+      </ThemeProvider>
     </ErrorBoundary>
   </React.StrictMode>,
   document.getElementById('root')
