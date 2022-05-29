@@ -15,7 +15,7 @@ const Checkout = () => {
   const [userAddress, setUserAddress] = useState(null);
   const [selectedAddress, setSelectedAddress] = useState('');
 
-  const { cart } = useCart();
+  const { cart, setCart } = useCart();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,6 +47,7 @@ const Checkout = () => {
       const data = await placeOrder(selectedAddress, cart.id);
       toast.success(data?.message);
       setTimeout(() => {
+        setCart([]);
         navigate('/', { replace: true });
       }, 500);
     } catch (error) {

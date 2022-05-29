@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { useMediaQuery } from 'react-responsive';
 import { useProducts } from 'providers/ProductProvider/ProductProvider';
 import { useFilter } from 'providers/FilterProvider/FilterProvider';
 import { BookCard, Button, Sidebar } from 'components';
 import { useCart } from 'providers';
-import toast from 'react-hot-toast';
 import './Product.scss';
 
 const Product = () => {

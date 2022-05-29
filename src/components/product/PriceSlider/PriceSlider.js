@@ -4,7 +4,7 @@ import Typography from 'components/common/Typography/Typography';
 import './PriceSlider.scss';
 
 const PriceSlider = ({ min, max, className, sliderClassName, sliderProps, ...props }) => {
-  const [value, setValue] = useState(min);
+  const [value, setValue] = useState(max);
 
   const handleOnChange = (e) => {
     const { onChange = null } = sliderProps;
@@ -22,7 +22,7 @@ const PriceSlider = ({ min, max, className, sliderClassName, sliderProps, ...pro
         className={cn('PriceSlider__input d-block', sliderClassName)}
         min={min}
         max={max}
-        value={value}
+        defaultValue={max}
         {...sliderProps}
         onChange={handleOnChange}
       />

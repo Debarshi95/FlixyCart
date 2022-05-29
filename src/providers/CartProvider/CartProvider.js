@@ -44,7 +44,7 @@ const ProductProvider = ({ children, user }) => {
   }, []);
 
   const value = useMemo(
-    () => ({ cart, handleUpdateCart, handleRemoveFromCart }),
+    () => ({ cart, setCart, handleUpdateCart, handleRemoveFromCart }),
     [cart, handleUpdateCart, handleRemoveFromCart]
   );
 
