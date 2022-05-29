@@ -1,12 +1,12 @@
 import React, { memo, useEffect, useState } from 'react';
 import cn from 'classnames';
+import toast from 'react-hot-toast';
 import Button from 'components/common/Button/Button';
 import CardImage from 'components/common/CardImage/CardImage';
 import Typography from 'components/common/Typography/Typography';
 import { getItemInCart } from 'utils/helperFuncs';
-import './BookCard.scss';
 import { useAuth, useCart } from 'providers';
-import toast from 'react-hot-toast';
+import './BookCard.scss';
 
 const BookCard = ({
   children,
@@ -66,7 +66,7 @@ const BookCard = ({
               </Typography>
               <div className="d-flex">
                 {book.categories.map((item, idx) => (
-                  <p key={idx} className="Typography--primary Typography--xs">
+                  <p key={idx} className="Typography--primary Typography--xs Typography--ellipsis">
                     {item}{' '}
                   </p>
                 ))}

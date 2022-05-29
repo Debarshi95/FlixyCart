@@ -28,15 +28,30 @@
     }
   }
   &__IconButton {
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    position: relative;
     @include theme() {
       color: $color-primary-200;
-      font-size: 1.3rem;
-      cursor: pointer;
-      border: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: transparent;
     }
+  }
+
+  &__badge {
+    background-color: rgb(243, 74, 74);
+    position: absolute;
+    content: '';
+    width: 1.2rem;
+    height: 1.3rem;
+    top: -10px;
+    right: -10px;
+    color: #fff;
+    font-size: 13px;
+    text-align: center;
+    border-radius: 50%;
   }
 }

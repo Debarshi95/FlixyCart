@@ -10,8 +10,9 @@
     margin: 0.5rem 0 0.35rem 0;
     border: none;
     border-radius: 3px;
-    background-color: $color-white-smoky;
+    background-color: $color-light-bg-default;
     font-size: 0.95rem;
+    border: 1px solid $color-primary-200;
   }
 
   &__error {

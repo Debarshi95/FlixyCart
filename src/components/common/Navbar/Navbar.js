@@ -5,12 +5,13 @@ import { FaSignOutAlt, FaHeart } from 'react-icons/fa';
 import { useTheme } from 'providers/ThemeProvider/ThemeProvider';
 import { useAuth } from 'providers/AuthProvider/AuthProvider';
 import { clearItem } from 'utils/helperFuncs';
+import { useCart } from 'providers';
 import './Navbar.scss';
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
   const { user, setUser } = useAuth();
-
+  const { cart } = useCart() || {};
   const handleSignout = () => {
     clearItem('user');
     setUser(null);
@@ -29,6 +30,9 @@ const Navbar = () => {
                 <FaHeart />
               </NavLink>
               <NavLink to="/cart" className="Navbar__IconButton">
+                {cart?.products?.length > 0 && (
+                  <span className="Navbar__badge">{cart?.products?.length}</span>
+                )}
                 <BsFillCartFill />
               </NavLink>
               <button type="button" className="Navbar__IconButton" onClick={handleSignout}>

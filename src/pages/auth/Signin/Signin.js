@@ -44,7 +44,7 @@ const Signin = () => {
   return (
     <div className="Signin__root">
       <div className="Signin__formContainer d-flex flex-col">
-        <Typography variant="h5" className="Typography--primary mt-2 mb-1 text-center">
+        <Typography variant="h5" className="Typography--primary my-1 text-center">
           Signin to continue
         </Typography>
         <Formik
@@ -87,34 +87,36 @@ const Signin = () => {
                     placeholder="******"
                     value={values.password}
                   />
-                  <Button
-                    component="button"
-                    type="submit"
-                    variant="contained"
-                    className="Signin__button text-bold"
-                    disabled={
-                      isSubmitting ||
-                      !isValid ||
-                      Boolean(values.email === '' || values.password === '')
-                    }
-                  >
-                    {isSubmitting ? 'Submitting...' : 'Login'}
-                  </Button>
-                  <Button
-                    component="button"
-                    type="click"
-                    variant="contained"
-                    className="Signin__button text-bold"
-                    disabled={isSubmitting}
-                    onClick={() => {
-                      setValues({
-                        email: process.env.REACT_APP_TEST_EMAIL,
-                        password: process.env.REACT_APP_TEST_PASSWORD,
-                      });
-                    }}
-                  >
-                    {isSubmitting ? 'Submitting...' : 'Sign in as test user'}
-                  </Button>
+                  <div className="my-2">
+                    <Button
+                      component="button"
+                      type="submit"
+                      variant="contained"
+                      className="Signin__button text-bold"
+                      disabled={
+                        isSubmitting ||
+                        !isValid ||
+                        Boolean(values.email === '' || values.password === '')
+                      }
+                    >
+                      {isSubmitting ? 'Submitting...' : 'Login'}
+                    </Button>
+                    <Button
+                      component="button"
+                      type="click"
+                      variant="contained"
+                      className="Signin__button text-bold"
+                      disabled={isSubmitting}
+                      onClick={() => {
+                        setValues({
+                          email: process.env.REACT_APP_TEST_EMAIL,
+                          password: process.env.REACT_APP_TEST_PASSWORD,
+                        });
+                      }}
+                    >
+                      {isSubmitting ? 'Submitting...' : 'Sign in as test user'}
+                    </Button>
+                  </div>
                 </Form>
               </>
             );
