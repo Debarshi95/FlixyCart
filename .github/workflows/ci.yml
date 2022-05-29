@@ -36,6 +36,7 @@ jobs:
           REACT_APP_BASE_URL: ${{secrets.REACT_APP_BASE_URL}}
           REACT_APP_TEST_EMAIL: ${{ secrets.REACT_APP_TEST_EMAIL }}
           REACT_APP_TEST_PASSWORD: ${{ secrets.REACT_APP_TEST_PASSWORD }}
+          REACT_APP_RAZORPAY_KEY_ID: ${{secrets.REACT_APP_RAZORPAY_KEY_ID}}
         run: yarn build
 
       - name: Deploy to Netlify

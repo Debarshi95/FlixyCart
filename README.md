@@ -26,6 +26,8 @@ A ReactJS ecommerce web app for books.
   - Category
   - Ratings
   - Price Slider
+- Payment integration with Razorpay api
+- Authentication using JWT token and custom mongodb based backend server
 - LazyLoading/Code-splitting of components to dynamically load at runtime
 - Error management using ErrorBoundary to catch and show fallback UI.
 - LazyLoading/Code-splitting of components.
