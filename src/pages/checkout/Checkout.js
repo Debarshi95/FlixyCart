@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { Accordion, BookCard, Button, PriceCard, Typography } from 'components';
 import { useCart } from 'providers';
 import { getUserAddress, placeOrder } from 'services/flixycartApi';
+import { displayRazorpay } from 'utils/payment';
 import './Checkout.scss';
 
 const ITEMS = 'ITEMS';
@@ -39,12 +40,12 @@ const Checkout = () => {
     }
   };
 
-  const handlePlaceOrder = async () => {
-    if (selectedAddress === '') {
-      return toast.error('Please select an address');
+  const handlePlaceOrder = async (paymentId) => {
+    if (!paymentId) {
+      return toast.error('Payment not succesfull');
     }
     try {
-      const data = await placeOrder(selectedAddress, cart.id);
+      const data = await placeOrder(selectedAddress, cart._id, paymentId);
       toast.success(data?.message);
       setTimeout(() => {
         setCart([]);
@@ -53,6 +54,14 @@ const Checkout = () => {
     } catch (error) {
       toast.error("Couldn't place order!! Some error occurred");
     }
+    return null;
+  };
+
+  const handlePayment = async () => {
+    if (selectedAddress === '') {
+      return toast.error('Please select an address');
+    }
+    displayRazorpay({ onError: toast.error, onSuccess: handlePlaceOrder });
     return null;
   };
 
@@ -127,8 +136,8 @@ const Checkout = () => {
         <PriceCard
           cart={cart}
           className="Checkout__orderCard"
-          buttonText="Place Order"
-          onClick={handlePlaceOrder}
+          buttonText="Make Payment"
+          onClick={handlePayment}
           headerTitle="Order summary"
           showDiscountToast={false}
         />
