@@ -9,8 +9,8 @@ import { setItem } from 'utils/helperFuncs';
 import './Signup.scss';
 
 const Signup = () => {
-  const { user, setUser } = useAuth();
   const navigate = useNavigate();
+  const { user, setUser } = useAuth();
 
   const handleSubmit = async (values, { resetForm }) => {
     const { username, email, password, confirmPassword } = values;
@@ -18,9 +18,9 @@ const Signup = () => {
       const resUser = await signUp({ username, email, password, confirmPassword });
 
       if (resUser?.id) {
-        setUser({ ...resUser });
         setItem('user', { ...resUser });
         navigate('/', { replace: true });
+        setUser({ ...resUser });
       }
     } catch (err) {
       let { message = {} } = err.response.data || {};

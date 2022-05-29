@@ -59,11 +59,6 @@ const Wishlist = () => {
               <Typography variant="h5" size="sm">
                 {product.title}
               </Typography>
-              <Typography variant="div" className="d-flex items-center">
-                <Typography variant="p" className="mr-1 text-10" textbold size="xs">
-                  Quantity :
-                </Typography>
-              </Typography>
               <Typography variant="h6" size={sm ? 'xs' : 'sm'}>
                 Rs. {product.price}
               </Typography>

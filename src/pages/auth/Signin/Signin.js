@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import { Button, Input, Typography } from 'components';
 import { signIn } from 'services/flixycartApi';
@@ -9,8 +9,11 @@ import { setItem } from 'utils/helperFuncs';
 import './Signin.scss';
 
 const Signin = () => {
-  const { user, setUser } = useAuth();
   const navigate = useNavigate();
+
+  const { user, setUser } = useAuth();
+
+  const { state } = useLocation();
 
   const handleSubmit = async (values, { resetForm }) => {
     const { email, password } = values;
@@ -18,9 +21,10 @@ const Signin = () => {
     try {
       const resUser = await signIn({ email, password });
       if (resUser?.id) {
-        setUser({ ...resUser });
+        const path = state?.pathname || '/';
         setItem('user', { ...resUser });
-        navigate('/', { replace: true });
+        navigate(path, { replace: true });
+        setUser({ ...resUser });
       }
     } catch (err) {
       let { message = {} } = err.response.data || {};

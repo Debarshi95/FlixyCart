@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { BsFillMoonFill, BsSunFill, BsFillCartFill } from 'react-icons/bs';
 import { FaSignOutAlt, FaHeart } from 'react-icons/fa';
 import { useTheme } from 'providers/ThemeProvider/ThemeProvider';
@@ -9,9 +9,12 @@ import { useCart } from 'providers';
 import './Navbar.scss';
 
 const Navbar = () => {
+  const location = useLocation();
+
   const { theme, toggleTheme } = useTheme();
   const { user, setUser } = useAuth();
   const { cart } = useCart() || {};
+
   const handleSignout = () => {
     clearItem('user');
     setUser(null);
@@ -41,8 +44,12 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <NavLink to="/signin">SignIn</NavLink>
-              <NavLink to="/signup">SignUp</NavLink>
+              <NavLink to="/signin" state={{ pathname: location.pathname }}>
+                SignIn
+              </NavLink>
+              <NavLink to="/signup" state={{ pathname: location.pathname }}>
+                SignUp
+              </NavLink>
             </>
           )}
           <div
